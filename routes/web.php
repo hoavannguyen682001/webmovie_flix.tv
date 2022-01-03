@@ -24,6 +24,14 @@ Route::get('/phim', [IndexController::class, 'movie'])->name('movie');
 Route::get('/xem-phim', [IndexController::class, 'watch'])->name('watch');
 Route::get('/episode', [IndexController::class, 'episode'])->name('episode');
 
+
+//ROUTE ADMIN
+Route::resource('category', App\Http\Controllers\CategoryController::class);
+Route::resource('country',  App\Http\Controllers\CountryController::class);
+Route::resource('episode',  App\Http\Controllers\EpisodeController::class);
+Route::resource('genre',    App\Http\Controllers\GenreController::class);
+Route::resource('movie',    App\Http\Controllers\MovieController::class);
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
