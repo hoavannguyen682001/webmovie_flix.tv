@@ -12,28 +12,28 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @if(!isset($category))
-                         {!! Form::open(['route' => 'category.store', 'method' => 'POST']) !!}
+                    @if(!isset($country))
+                         {!! Form::open(['route' => 'country.store', 'method' => 'POST']) !!}
                     @else
-                         {!! Form::open(['route' => ['category.update', $category->id], 'method' => 'PUT']) !!}
+                         {!! Form::open(['route' => ['country.update', $country->id], 'method' => 'PUT']) !!}
                     @endif
-                        <div class="form-group">
+                    <div class="form-group">
                             {!! Form::label('title', 'Title', [])  !!}
-                            {!! Form::text('title', isset($category) ? $category->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
+                            {!! Form::text('title', isset($country) ? $country->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
-                            {!! Form::text('slug', isset($category) ? $category->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
+                            {!! Form::text('slug', isset($country) ? $country->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', [])  !!}
-                            {!! Form::textarea('description', isset($category) ? $category->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description'])  !!}
+                            {!! Form::textarea('description', isset($country) ? $country->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('status', 'Status', [])  !!}
-                            {!! Form::select('status', ['1' =>'Hiển thị', '0' =>'Không'],  isset($category) ? $category->status :'', ['class' => 'form-control']) !!}
+                            {!! Form::select('status', ['1' =>'hien thi', '0' =>'khong'],  isset($country) ? $country->status :'', ['class' => 'form-control']) !!}
                         </div>
-                        @if(!isset($category))
+                        @if(!isset($country))
                             {!! Form::submit('Thêm',['class' =>'btn btn-success'])  !!}
                         @else
                             {!! Form::submit('Cập nhập',['class' =>'btn btn-success'])  !!}
@@ -54,24 +54,24 @@
   </thead>
   <tbody>
     <tr>
-    @foreach($list as $key => $category)
-      <td>{{ $category->id }}</td>
-      <td>{{ $category->title }}</td>
-      <td>{{ $category->slug }}</td>
-      <td>{{ $category->description }}</td>
+    @foreach($list as $key => $country)
+      <td>{{ $country->id }}</td>
+      <td>{{ $country->title }}</td>
+      <td>{{ $country->slug }}</td>
+      <td>{{ $country->description }}</td>
       <td>
-          @if($category->status)
-            Hiển thị
+          @if($country->status)
+            Hien thi
           @else
-            Không hiển thị
+            Khong hien thi
           @endif
       </td>
       <td>
-        {!! Form::open(['route' => ['category.destroy', $category->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("Bạn có muốn xoá??")']) !!}
+        {!! Form::open(['route' => ['country.destroy', $country->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("Bạn có muốn xoá??")']) !!}
             {!! Form::submit('Xoá', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
       </td>
-      <td><a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Chỉnh sửa</a></td>
+      <td><a href="{{ route('country.edit', $country->id) }}" class="btn btn-warning">Chỉnh sửa</a></td>
     </tr>
     @endforeach
   </tbody>

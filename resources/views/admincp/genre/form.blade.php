@@ -12,28 +12,28 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @if(!isset($category))
-                         {!! Form::open(['route' => 'category.store', 'method' => 'POST']) !!}
+                    @if(!isset($genre))
+                         {!! Form::open(['route' => 'genre.store', 'method' => 'POST']) !!}
                     @else
-                         {!! Form::open(['route' => ['category.update', $category->id], 'method' => 'PUT']) !!}
+                         {!! Form::open(['route' => ['genre.update', $genre->id], 'method' => 'PUT']) !!}
                     @endif
-                        <div class="form-group">
+                    <div class="form-group">
                             {!! Form::label('title', 'Title', [])  !!}
-                            {!! Form::text('title', isset($category) ? $category->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
+                            {!! Form::text('title', isset($genre) ? $genre->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
-                            {!! Form::text('slug', isset($category) ? $category->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
+                            {!! Form::text('slug', isset($genre) ? $genre->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', [])  !!}
-                            {!! Form::textarea('description', isset($category) ? $category->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description'])  !!}
+                            {!! Form::textarea('description', isset($genre) ? $genre->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('status', 'Status', [])  !!}
-                            {!! Form::select('status', ['1' =>'Hiển thị', '0' =>'Không'],  isset($category) ? $category->status :'', ['class' => 'form-control']) !!}
+                            {!! Form::select('status', ['1' =>'hien thi', '0' =>'khong'],  isset($genre) ? $genre->status :'', ['class' => 'form-control']) !!}
                         </div>
-                        @if(!isset($category))
+                        @if(!isset($genre))
                             {!! Form::submit('Thêm',['class' =>'btn btn-success'])  !!}
                         @else
                             {!! Form::submit('Cập nhập',['class' =>'btn btn-success'])  !!}
@@ -54,24 +54,24 @@
   </thead>
   <tbody>
     <tr>
-    @foreach($list as $key => $category)
-      <td>{{ $category->id }}</td>
-      <td>{{ $category->title }}</td>
-      <td>{{ $category->slug }}</td>
-      <td>{{ $category->description }}</td>
+    @foreach($list as $key => $genre)
+      <td>{{ $genre->id }}</td>
+      <td>{{ $genre->title }}</td>
+      <td>{{ $genre->slug }}</td>
+      <td>{{ $genre->description }}</td>
       <td>
-          @if($category->status)
-            Hiển thị
+          @if($genre->status)
+            Hien thi
           @else
-            Không hiển thị
+            Khong hien thi
           @endif
       </td>
       <td>
-        {!! Form::open(['route' => ['category.destroy', $category->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("Bạn có muốn xoá??")']) !!}
+        {!! Form::open(['route' => ['genre.destroy', $genre->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("Bạn có muốn xoá??")']) !!}
             {!! Form::submit('Xoá', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
       </td>
-      <td><a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Chỉnh sửa</a></td>
+      <td><a href="{{ route('genre.edit', $genre->id) }}" class="btn btn-warning">Chỉnh sửa</a></td>
     </tr>
     @endforeach
   </tbody>

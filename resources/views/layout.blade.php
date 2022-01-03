@@ -8,7 +8,7 @@
       <meta content="VN" name="geo.region" />
       <meta name="DC.language" scheme="utf-8" content="vi" />
       <meta name="language" content="Việt Nam">
-      
+
 
       <link rel="shortcut icon" href="https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png" type="image/x-icon" />
       <meta name="revisit-after" content="1 days" />
@@ -26,11 +26,11 @@
       <meta property="og:image:width" content="300" />
       <meta property="og:image:height" content="55" />
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-     
+
       <link rel='dns-prefetch' href='//s.w.org' />
-      
+
       <link rel='stylesheet' id='bootstrap-css' href='{{ asset('css/bootstrap.min.css?ver=5.7.2') }}' media='all' />
-      
+
       <link rel='stylesheet' id='style-css' href='{{ asset('css/style.css?ver=5.7.2') }}' media='all' />
       <link rel='stylesheet' id='wp-block-library-css' href='{{ asset('css/style.min.css?ver=5.7.2') }}' media='all' />
       <script type='text/javascript' src='{{ asset('js/jquery.min.js?ver=5.7.2') }}' id='halim-jquery-js'></script>
@@ -98,52 +98,26 @@
                   <div class="menu-menu_1-container">
                      <ul id="menu-menu_1" class="nav navbar-nav navbar-left">
                         <li class="current-menu-item active"><a title="Trang Chủ" href="{{ route('homepage') }}">Trang Chủ</a></li>
-                        <li class="mega"><a title="Phim Mới" href="{{ route('category') }}">Phim Mới</a></li>
-                        {{-- <li class="mega dropdown">
-                           <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Năm <span class="caret"></span></a>
-                           <ul role="menu" class=" dropdown-menu">
-                              <li><a title="Phim 2020" href="danhmuc.php">Phim 2020</a></li>
-                              <li><a title="Năm 2019" href="danhmuc.php">Năm 2019</a></li>
-                              <li><a title="Năm 2018" href="danhmuc.php">Năm 2018</a></li>
-                           </ul>
-                        </li> --}}
                         <li class="mega dropdown">
                            <a title="Thể Loại" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Thể Loại <span class="caret"></span></a>
                            <ul role="menu" class=" dropdown-menu">
-                              <li><a title="Tâm Lý" href="{{ route('genre') }}">Tâm Lý</a></li>
-                              {{-- <li><a title="Hành động" href="">Hành động</a></li>
-                              <li><a title="Viễn Tưởng" href="">Viễn Tưởng</a></li>
-                              <li><a title="Hoạt Hình" href="danhmuc.php">Hoạt Hình</a></li>
-                              <li><a title="Kinh Dị" href="danhmuc.php">Kinh Dị</a></li>
-                              <li><a title="Hài Hước" href="danhmuc.php">Hài Hước</a></li>
-                              <li><a title="Hình Sự" href="danhmuc.php">Hình Sự</a></li>
-                              <li><a title="Võ Thuật" href="danhmuc.php">Võ Thuật</a></li>
-                              <li><a title="Cổ Trang" href="danhmuc.php">Cổ Trang</a></li>
-                              <li><a title="Phim Ma" href="danhmuc.php">Phim Ma</a></li>
-                              <li><a title="Tình Cảm" href="danhmuc.php">Tình Cảm</a></li>
-                              <li><a title="Thể Thao - Âm Nhạc" href="danhmuc.php">Thể Thao &#8211; Âm Nhạc</a></li>
-                              <li><a title="Thần Thoại" href="danhmuc.php">Thần Thoại</a></li>
-                              <li><a title="Tài Liệu" href="danhmuc.php">Tài Liệu</a></li>
-                              <li><a title="Phiêu Lưu" href="danhmuc.php">Phiêu Lưu</a></li>
-                              <li><a title="Gia Đình" href="danhmuc.php">Gia Đình</a></li>
-                              <li><a title="Chiến Tranh" href="danhmuc.php">Chiến Tranh</a></li> --}}
+                              @foreach($genre as $key => $gen)
+                                 <li><a title="{{ $gen->title }}" href="{{ route('genre', $gen->slug) }}">{{ $gen->title }}</a></li>
+                             @endforeach
                            </ul>
                         </li>
                         <li class="mega dropdown">
                            <a title="Quốc Gia" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Quốc Gia <span class="caret"></span></a>
                            <ul role="menu" class=" dropdown-menu">
-                              <li><a title="Việt nam" href="{{ route('country') }}">Việt nam</a></li>
-                              {{-- <li><a title="Ấn Độ" href="danhmuc.php">Ấn Độ</a></li>
-                              <li><a title="Mỹ" href="danhmuc.php">Mỹ</a></li>
-                              <li><a title="Hồng Kông" href="danhmuc.php">Hồng Kông</a></li>
-                              <li><a title="Nhật Bản" href="danhmuc.php">Nhật Bản</a></li>
-                              <li><a title="Trung Quốc" href="danhmuc.php">Trung Quốc</a></li>
-                              <li><a title="Hàn Quốc" href="danhmuc.php">Hàn Quốc</a></li>
-                              <li><a title="Đài Loan" href="danhmuc.php">Đài Loan</a></li>
-                              <li><a title="Thái Lan" href="danhmuc.php">Thái Lan</a></li>
-                              <li><a title="Philippin" href="danhmuc.php">Philippin</a></li> --}}
+                              @foreach($country as $key => $coun)
+                              <li><a title="{{ $coun->title }}" href="{{ route('country', $coun->slug) }}">{{ $coun->title }}</a></li>
+                                @endforeach
                            </ul>
                         </li>
+                            @foreach($category as $key => $cate)
+                                <li class="mega"><a title="{{ $cate->title }}" href="{{ route('category', $cate->slug) }}">{{ $cate->title }}</a></li>
+                            @endforeach
+
                         {{-- <li><a title="Phim Lẻ" href="danhmuc.php">Phim Lẻ</a></li>
                         <li><a title="Phim Bộ" href="danhmuc.php">Phim Bộ</a></li>
                         <li><a title="Phim Chiếu Rạp" href="danhmuc.php">Phim Chiếu Rạp</a></li> --}}
@@ -163,7 +137,7 @@
          </div>
       </div>
       </div>
-      
+
       <div class="container">
          <div class="row fullwith-slider"></div>
       </div>
@@ -184,17 +158,17 @@
          </div>
       </footer>
       <div id='easy-top'></div>
-     
+
       <script type='text/javascript' src='{{ asset('js/bootstrap.min.js?ver=5.7.2') }}' id='bootstrap-js'></script>
       <script type='text/javascript' src='{{ asset('js/owl.carousel.min.js?ver=5.7.2') }}' id='carousel-js'></script>
-     
+
       <script type='text/javascript' src='{{ asset('js/halimtheme-core.min.js?ver=1626273138') }}' id='halim-init-js'></script>
-      
-     
-     
-   
+
+
+
+
       <style>#overlay_mb{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.7);z-index:99999;cursor:pointer}#overlay_mb .overlay_mb_content{position:relative;height:100%}.overlay_mb_block{display:inline-block;position:relative}#overlay_mb .overlay_mb_content .overlay_mb_wrapper{width:600px;height:auto;position:relative;left:50%;top:50%;transform:translate(-50%, -50%);text-align:center}#overlay_mb .overlay_mb_content .cls_ov{color:#fff;text-align:center;cursor:pointer;position:absolute;top:5px;right:5px;z-index:999999;font-size:14px;padding:4px 10px;border:1px solid #aeaeae;background-color:rgba(0, 0, 0, 0.7)}#overlay_mb img{position:relative;z-index:999}@media only screen and (max-width: 768px){#overlay_mb .overlay_mb_content .overlay_mb_wrapper{width:400px;top:3%;transform:translate(-50%, 3%)}}@media only screen and (max-width: 400px){#overlay_mb .overlay_mb_content .overlay_mb_wrapper{width:310px;top:3%;transform:translate(-50%, 3%)}}</style>
-    
+
       <style>
          #overlay_pc {
          position: fixed;
@@ -258,7 +232,7 @@
          }
          }
       </style>
-     
+
       <style>
          .float-ck { position: fixed; bottom: 0px; z-index: 9}
          * html .float-ck /* IE6 position fixed Bottom */{position:absolute;bottom:auto;top:expression(eval (document.documentElement.scrollTop+document.docum entElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))) ;}

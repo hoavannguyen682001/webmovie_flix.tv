@@ -5,7 +5,7 @@
        <div class="panel-heading">
           <div class="row">
              <div class="col-xs-6">
-                <div class="yoast_breadcrumb hidden-xs"><span><span><a href="">Thể loại</a> » <span class="breadcrumb_last" aria-current="page">2020</span></span></span></div>
+                <div class="yoast_breadcrumb hidden-xs"><span><span><a href="">{{ $genre_slug->title}}</a> » <span class="breadcrumb_last" aria-current="page">2020</span></span></span></div>
              </div>
           </div>
        </div>
@@ -16,14 +16,14 @@
     <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
        <section>
           <div class="section-bar clearfix">
-             <h1 class="section-title"><span>Phim 2020</span></h1>
+             <h1 class="section-title"><span>{{ $genre_slug->title}}</span></h1>
           </div>
           <div class="halim_box">
              <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -38,7 +38,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -53,7 +53,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -68,7 +68,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -83,7 +83,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -98,7 +98,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -113,7 +113,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -128,7 +128,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -143,7 +143,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -158,7 +158,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -173,7 +173,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -188,7 +188,7 @@
                 <div class="halim-item">
                    <a class="halim-thumb" href="chitiet.php" title="VŨNG LẦY PHẦN 1">
                       <figure><img class="lazy img-responsive" src="https://static.vieon.vn/vieplay-image/poster_v4/2021/04/27/gw09z3vn_660x946-cuocchienthuongluu3-docquyen.jpg" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
-                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                      <span class="status">5/5</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                       <div class="icon_overlay"></div>
                       <div class="halim-post-title-box">
                          <div class="halim-post-title ">
@@ -199,7 +199,7 @@
                    </a>
                 </div>
              </article>
-          
+
           </div>
           <div class="clearfix"></div>
           <div class="text-center">
@@ -344,8 +344,8 @@
                          </span>
                       </div>
                    </div>
-                  
-                  
+
+
                 </div>
              </div>
           </section>

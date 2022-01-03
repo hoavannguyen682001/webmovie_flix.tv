@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('title',50);
             $table->longText('description',150);
             $table->integer('status');
+            $table->string('slug',255);
             $table->timestamps();
         });
     }
