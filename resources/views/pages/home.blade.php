@@ -214,8 +214,9 @@
                         <span class="h-text">{{$cate_home->title}}</span>
                         </a>
                     </div>
-                    <!-- <div id="halim-advanced-widget-2-ajax-box" class="halim_box">
-                        <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606">
+                    <div id="halim-advanced-widget-2-ajax-box" class="halim_box">
+
+                    <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606">
                             <div class="halim-item">
                             <a class="halim-thumb" href="chitiet.php">
                                 <figure><img class="lazy img-responsive" src="https://image.bongngocdn.com/upload/poster-loki-marvel-2021.jpg" alt="BẠN CÙNG PHÒNG CỦA TÔI LÀ GUMIHO" title="BẠN CÙNG PHÒNG CỦA TÔI LÀ GUMIHO"></figure>
@@ -230,7 +231,8 @@
                             </a>
                             </div>
                         </article>
-                    </div> -->
+                        
+                    </div>
                 </section>
                 <div class="clearfix"></div>
                 @endforeach

@@ -35,15 +35,15 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('category', 'Category', [])  !!}
-                            {!! Form::select('category_id',$category ,  isset($movie) ? $movie->category :'', ['class' => 'form-control']) !!}
+                            {!! Form::select('category_id',$category ,  isset($movie) ? $movie->category_id :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('genre', 'Genre', [])  !!}
-                            {!! Form::select('genre_id', $genre,  isset($movie) ? $movie->genre :'', ['class' => 'form-control']) !!}
+                            {!! Form::select('genre_id', $genre,  isset($movie) ? $movie->genre_id :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('country', 'Country', [])  !!}
-                            {!! Form::select('country_id',$country ,  isset($movie) ? $movie->country :'', ['class' => 'form-control']) !!}
+                            {!! Form::select('country_id',$country ,  isset($movie) ? $movie->country_id :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('image', 'Image', [])  !!}
