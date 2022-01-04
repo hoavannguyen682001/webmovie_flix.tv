@@ -56,9 +56,6 @@ class MovieController extends Controller
         //them hinh anh
         $get_image = $request->file('image');
 
-        //duong dan luu tru hinh anh
-        $path = 'public/uploads/movie/';
-
         //  them hinh anh
             if($get_image){
                 $get_name_image = $get_image->getClientOriginalName(); //tenhinhanh.jpg
@@ -120,9 +117,6 @@ class MovieController extends Controller
 
         //them hinh anh
         $get_image = $request->file('image');
-
-        //duong dan luu tru hinh anh
-        $path = 'public/uploads/movie/';
 
         //  them hinh anh
             if($get_image){
