@@ -46,7 +46,9 @@ class MovieController extends Controller
         $data = $request->all();
         $movie = new Movie();
         $movie->title = $data['title'];
+        $movie->name_eng = $data['name_eng'];
         $movie->slug = $data['slug'];
+        $movie->phim_hot = $data['phim_hot'];
         $movie->description = $data['description'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];
@@ -108,7 +110,9 @@ class MovieController extends Controller
         $data = $request->all();
         $movie = Movie::find($id);
         $movie->title = $data['title'];
+        $movie->name_eng = $data['name_eng'];
         $movie->slug = $data['slug'];
+        $movie->phim_hot = $data['phim_hot'];
         $movie->description = $data['description'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];

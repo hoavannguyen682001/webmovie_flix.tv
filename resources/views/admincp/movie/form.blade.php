@@ -17,10 +17,14 @@
                     @else
                          {!! Form::open(['route' => ['movie.update', $movie->id], 'method' => 'PUT',  'enctype' => 'multipart/form-data']) !!}
                     @endif
-                    <div class="form-group">
+                        <div class="form-group">
                             {!! Form::label('title', 'Title', [])  !!}
                             {!! Form::text('title', isset($movie) ? $movie->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
                         </div>
+                        <div class="form-group">
+                          {!! Form::label('Name English', 'Name English', [])  !!}
+                          {!! Form::text('name_eng', isset($movie) ? $movie->name_eng :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu'])  !!}
+                      </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
                             {!! Form::text('slug', isset($movie) ? $movie->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
@@ -32,6 +36,10 @@
                         <div class="form-group">
                             {!! Form::label('status', 'Status', [])  !!}
                             {!! Form::select('status', ['1' =>'hien thi', '0' =>'khong'],  isset($movie) ? $movie->status :'', ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('Hot', 'Hot', [])  !!}
+                            {!! Form::select('phim_hot', ['1' =>'Co', '0' =>'khong'],  isset($movie) ? $movie->phim_hot :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('category', 'Category', [])  !!}
@@ -66,6 +74,7 @@
       <th scope="col">Id</th>
       <th scope="col">Tên phim</th>
       <th scope="col">Slug</th>
+      <th scope="col">Hot</th>
       <th scope="col">Mô tả</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Danh mục</th>
@@ -81,6 +90,13 @@
       <td>{{ $movie->id }}</td>
       <td>{{ $movie->title }}</td>
       <td>{{ $movie->slug }}</td>
+      <td>
+        @if($movie->phim_hot == 0)
+          Khong
+        @else
+          Co
+        @endif
+    </td>
       <td>{{ $movie->description }}</td>
       <td>
           @if($movie->status)
