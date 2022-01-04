@@ -18,6 +18,7 @@ class CreateMoviesTable extends Migration
             $table->string('title',50);
             $table->longText('description',255);
             $table->integer('status');
+            $table->string('slug',255);
             $table->string('image',25);
             $table->integer('category_id');
             $table->integer('genre_id');

@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Quan li danh muc') }}</div>
+                <div class="card-header">{{ __('Quản lý quốc gia') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
