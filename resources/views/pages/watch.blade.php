@@ -16,9 +16,9 @@
         <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
            <section id="content" class="test">
               <div class="clearfix wrap-content">
-                 
-                 <iframe width="100%" height="500" src="https://www.youtube.com/embed/r958O404e4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                 
+
+                 <iframe width="100%" height="500" src="{{asset('uploads/video/'.$data->video)  }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                  <div class="button-watch">
                     <ul class="halim-social-plugin col-xs-4 hidden-xs">
                        <li class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></li>
@@ -29,14 +29,14 @@
                           <span><i class="hl-next"></i> Autonext: <span id="autonext-status">On</span></span>
                        </div>
                        <div id="explayer" class="hidden-xs"><i class="hl-resize-full"></i>
-                          Expand 
+                          Expand
                        </div>
                        <div id="toggle-light"><i class="hl-adjust"></i>
-                          Light Off 
+                          Light Off
                        </div>
                        <div id="report" class="halim-switch"><i class="hl-attention"></i> Report</div>
                        <div class="luotxem"><i class="hl-eye"></i>
-                          <span>1K</span> lượt xem 
+                          <span>1K</span> lượt xem
                        </div>
                        <div class="luotxem">
                           <a class="visible-xs-inline" data-toggle="collapse" href="#moretool" aria-expanded="false" aria-controls="moretool"><i class="hl-forward"></i> Share</a>
@@ -49,7 +49,7 @@
                        <div class="fb-save" data-uri="" data-size="small"></div>
                     </ul>
                  </div>
-              
+
                  <div class="clearfix"></div>
                  <div class="clearfix"></div>
                  <div class="title-block">
@@ -78,9 +78,9 @@
                           <div class="halim-server">
                              <ul class="halim-list-eps">
 
-                                <a href="{{ route('episode') }}"><li class="halim-episode"><span class="halim-btn halim-btn-2 active halim-info-1-1 box-shadow" data-post-id="37976" data-server="1" data-episode="1" data-position="first" data-embed="0" data-title="Xem phim Tôi Và Chúng Ta Ở Bên Nhau - Tập 1 - Be Together - vietsub + Thuyết Minh" data-h1="Tôi Và Chúng Ta Ở Bên Nhau - tập 1">1</span>
+                                <a href=""><li class="halim-episode"><span class="halim-btn halim-btn-2 active halim-info-1-1 box-shadow" data-post-id="37976" data-server="1" data-episode="1" data-position="first" data-embed="0" data-title="Xem phim Tôi Và Chúng Ta Ở Bên Nhau - Tập 1 - Be Together - vietsub + Thuyết Minh" data-h1="Tôi Và Chúng Ta Ở Bên Nhau - tập 1">1</span>
                                 </li></a>
-                                <a href="{{ route('episode') }}"><li class="halim-episode"><span class="halim-btn halim-btn-2 halim-info-1-2 box-shadow" data-post-id="37976" data-server="1" data-episode="2" data-position="" data-embed="0" data-title="Xem phim Tôi Và Chúng Ta Ở Bên Nhau - Tập 2 - Be Together - vietsub + Thuyết Minh" data-h1="Tôi Và Chúng Ta Ở Bên Nhau - tập 2">2</span>
+                                <a href=""><li class="halim-episode"><span class="halim-btn halim-btn-2 halim-info-1-2 box-shadow" data-post-id="37976" data-server="1" data-episode="2" data-position="" data-embed="0" data-title="Xem phim Tôi Và Chúng Ta Ở Bên Nhau - Tập 2 - Be Together - vietsub + Thuyết Minh" data-h1="Tôi Và Chúng Ta Ở Bên Nhau - tập 2">2</span>
                                 </li></a>
                                 {{-- <li class="halim-episode"><span class="halim-btn halim-btn-2 halim-info-1-3 box-shadow" data-post-id="37976" data-server="1" data-episode="3" data-position="" data-embed="0" data-title="Xem phim Tôi Và Chúng Ta Ở Bên Nhau - Tập 3 - Be Together - vietsub + Thuyết Minh" data-h1="Tôi Và Chúng Ta Ở Bên Nhau - tập 3">3</span></li>
                                 <li class="halim-episode"><span class="halim-btn halim-btn-2 halim-info-1-4 box-shadow" data-post-id="37976" data-server="1" data-episode="4" data-position="" data-embed="0" data-title="Xem phim Tôi Và Chúng Ta Ở Bên Nhau - Tập 4 - Be Together - vietsub + Thuyết Minh" data-h1="Tôi Và Chúng Ta Ở Bên Nhau - tập 4">4</span></li>
@@ -181,10 +181,10 @@
               </a>
               </div>
            </article>
-          
+
            </div>
            <script>
-              jQuery(document).ready(function($) {				
+              jQuery(document).ready(function($) {
               var owl = $('#halim_related_movies-2');
               owl.owlCarousel({loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:4},1000: {items: 4}}})});
            </script>
@@ -321,8 +321,8 @@
                                 </span>
                              </div>
                           </div>
-                         
-                         
+
+
                        </div>
                     </div>
                  </section>

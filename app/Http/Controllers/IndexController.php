@@ -57,10 +57,22 @@ class IndexController extends Controller
 
         return view('pages.movie',compact('category','genre','country','movie','related'));
     }
-    public function watch(){
-       return view('pages.watch');
+    public function watch($id){
+        $data = Movie::find($id);
+        $category = Category::orderBy('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderBy('id','DESC')->get();
+        $country = Country::orderBy('id','DESC')->get();
+
+        return view('pages.watch', compact('data','genre', 'category', 'country'));
     }
-    public function episode(){
+     public function view($id){
+        $data = Movie::find($id);
+
+        return view('pages.watch', compact('data'));
+    }
+    public function episode($id){
+        $data = Movie::find($id);
+
        return view('pages.episode');
     }
 }

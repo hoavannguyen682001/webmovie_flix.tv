@@ -3,9 +3,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+        <a href="{{ route('country.index')}}" class="btn btn-success" >liệt kê quốc gia</a>
             <div class="card">
                 <div class="card-header">{{ __('Quản lý quốc gia') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -41,41 +41,7 @@
                         {!! Form::close() !!}
                 </div>
             </div>
-            <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Tên phim</th>
-      <th scope="col">Slug</th>
-      <th scope="col">Mô tả</th>
-      <th scope="col">Trạng thái</th>
-      <th scope="col">Quản lí</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    @foreach($list as $key => $country)
-      <td>{{ $country->id }}</td>
-      <td>{{ $country->title }}</td>
-      <td>{{ $country->slug }}</td>
-      <td>{{ $country->description }}</td>
-      <td>
-          @if($country->status)
-            Hien thi
-          @else
-            Khong hien thi
-          @endif
-      </td>
-      <td>
-        {!! Form::open(['route' => ['country.destroy', $country->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("Bạn có muốn xoá??")']) !!}
-            {!! Form::submit('Xoá', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!}
-      </td>
-      <td><a href="{{ route('country.edit', $country->id) }}" class="btn btn-warning">Chỉnh sửa</a></td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+           
         </div>
     </div>
 </div>

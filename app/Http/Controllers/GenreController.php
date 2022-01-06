@@ -18,7 +18,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $list = Genre::all();
+        return view('admincp.genre.index', compact('list'));
     }
 
     /**

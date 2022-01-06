@@ -17,7 +17,7 @@
     <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
        <section id="content" class="test">
           <div class="clearfix wrap-content">
-            
+
              <div class="halim-movie-wrapper">
                 <div class="title-block">
                    <div id="bookmark" class="bookmark-img-animation primary_ribbon" data-id="38424">
@@ -32,7 +32,7 @@
                       <img class="movie-thumb" src="{{asset('uploads/movie/'.$movie->image)}}" alt="GÓA PHỤ ĐEN">
                       <div class="bwa-content">
                          <div class="loader"></div>
-                         <a href="{{ route('watch') }}" class="bwac-btn">
+                         <a href="{{ route('watch', $movie->id) }}" class="bwac-btn">
                          <i class="fa fa-play"></i>
                          </a>
                       </div>
@@ -73,13 +73,13 @@
                 <h3 class="section-title"><span>CÓ THỂ BẠN MUỐN XEM</span></h3>
              </div>
              <div id="halim_related_movies-2" class="owl-carousel owl-theme related-film">
-                
+
                @foreach($related as $key => $relate)
                <article class="thumb grid-item post-38498">
                   <div class="halim-item">
                      <a class="halim-thumb" href="{{route('movie',$relate->slug)}}" >
                         <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$relate->image)}}" title="{{$relate->title}}"></figure>
-                        <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                        <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                         <div class="icon_overlay"></div>
                         <div class="halim-post-title-box">
                            <div class="halim-post-title ">
@@ -91,10 +91,10 @@
                   </div>
                </article>
             @endforeach
-               
+
              </div>
              <script>
-                $(document).ready(function($) {				
+                $(document).ready(function($) {
                 var owl = $('#halim_related_movies-2');
                 owl.owlCarousel({loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:4},1000: {items: 4}}})});
              </script>

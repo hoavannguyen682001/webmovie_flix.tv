@@ -17,7 +17,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $list = Movie::with('category','genre','country')->orderBy('id','ASC')->get();
+        return view('admincp.movie.index', compact('list'));
     }
 
     /**
@@ -31,8 +32,7 @@ class MovieController extends Controller
         $category = Category::pluck('title','id');
         $genre = Genre::pluck('title','id');
         $country = Country::pluck('title','id');
-        $list = Movie::with('category','genre','country')->orderBy('id','ASC')->get();
-        return view('admincp.movie.form', compact('list', 'category', 'country', 'genre'));
+        return view('admincp.movie.form', compact('category', 'country', 'genre'));
     }
 
     /**
@@ -66,6 +66,14 @@ class MovieController extends Controller
                 $get_image->move('uploads/movie/', $new_image); // copy hinh anh va tao ten moi
                 $movie->image = $new_image;
             }
+        $get_video = $request->file('video');
+        if($get_video){
+            $get_name_video = $get_video->getClientOriginalName(); //tenhinhanh.jpg
+            $name_video = current(explode('.',$get_name_video)); //[0] => tenhinhanh . [1] => jpg , lay mang dau tien
+            $new_video = $name_video.rand(0,9999).'.'. $get_video->getClientOriginalExtension(); // random tranh trung hinh anh, getClientOriginalExtension lay duoi mo rong
+            $get_video->move('uploads/video/', $new_video); // copy hinh anh va tao ten moi
+            $movie->video = $new_video;
+        }
             $movie->save();
         return redirect()->back();
     }
@@ -93,9 +101,8 @@ class MovieController extends Controller
         $category = Category::pluck('title','id');
         $genre = Genre::pluck('title','id');
         $country = Country::pluck('title','id');
-        $list = Movie::with('category','genre','country')->orderBy('id','ASC')->get();
         $movie = Movie::find($id);
-        return view('admincp.movie.form', compact('list', 'category', 'country', 'genre', 'movie'));
+        return view('admincp.movie.form', compact('category', 'country', 'genre', 'movie'));
     }
 
     /**
@@ -133,6 +140,18 @@ class MovieController extends Controller
                 $get_image->move('uploads/movie/', $new_image); // copy hinh anh va tao ten moi
                 $movie->image = $new_image;
             }
+            $get_video = $request->file('video');
+            if($get_video){
+                if(!empty($movie->video)){
+                    unlink('uploads/video/'.$movie->video);
+                }
+                $get_name_video = $get_video->getClientOriginalName(); //tenhinhanh.jpg
+                $name_video = current(explode('.',$get_name_video)); //[0] => tenhinhanh . [1] => jpg , lay mang dau tien
+                $new_video = $name_video.rand(0,9999).'.'. $get_video->getClientOriginalExtension(); // random tranh trung hinh anh, getClientOriginalExtension lay duoi mo rong
+                $get_video->move('uploads/video/', $new_video); // copy hinh anh va tao ten moi
+                $movie->video = $new_video;
+            }
+                $movie->save();
             $movie->save();
         return redirect()->back();
     }
@@ -149,7 +168,17 @@ class MovieController extends Controller
         if(!empty($movie->image)){
             unlink('uploads/movie/'.$movie->image);
         }
+        if(!empty($movie->video)){
+            unlink('uploads/video/'.$movie->video);
+        }
         $movie->delete();
         return redirect()->back();
+    }
+
+
+    public function view($id){
+        $data = Movie::find($id);
+
+        return view('admincp.movie.view', compact('data'));
     }
 }
