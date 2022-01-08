@@ -57,9 +57,9 @@
                            <div class="form-group">
                               <div class="input-group col-xs-12">
                                  <input id="search" type="text" name="keywords_submit" class="form-control input-search-ajax" placeholder="Tìm kiếm..." autocomplete="off" required>
-                                 <i class="animate-spin hl-spin4 hidden"></i>    
+                                 <i class="animate-spin hl-spin4 hidden"></i>
                               </div>
-                             
+
                            </div>
                            <div class="search-ajax-result">
                            </div>
@@ -69,6 +69,9 @@
                   </div>
                </div>
                <div class="col-md-4 hidden-xs">
+
+               <a class="btn btn-success" href="{{ route('loginuser.index') }}">Đăng nhập</a>
+
                   <div id="get-bookmark" class="box-shadow"><i class="hl-bookmark"></i><span> Bookmarks</span><span class="count">0</span></div>
                   <div id="bookmark-list" class="hidden bookmark-list-on-pc">
                      <ul style="margin: 0;"></ul>
@@ -183,7 +186,7 @@
             }else{
                $('.search-ajax-result').html('');
                $('.search-ajax-result').hide();
-            }     
+            }
          });
 
       </script>
@@ -269,7 +272,7 @@
          #search-form-pc .form-group{
             width: 300px;
             position: relative;
-            
+
          }
          #search-form-pc .form-control{
             width: 100%;
@@ -284,7 +287,7 @@
          }
          img.media-object{
             margin: 0;
-            margin-right: 10px; 
+            margin-right: 10px;
          }
          #search-form-pc .search-ajax-result h4{
             margin: 0;

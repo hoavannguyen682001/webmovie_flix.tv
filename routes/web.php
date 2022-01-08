@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginRegisController;
 
 
 /*
@@ -26,6 +27,13 @@ Route::get('/phim/{slug}', [IndexController::class, 'movie'])->name('movie');
 Route::get('/xem-phim/{id}', [IndexController::class, 'watch'])->name('watch');
 Route::get('/episode', [IndexController::class, 'episode'])->name('episode');
 Route::get('/view/{id}', [IndexController::class, 'view'])->name('view');
+
+// Route::get('/view_register_user', [UserController::class, 'view_add'])->name('viewregisteruser');
+Route::post('/register_user', [LoginRegisController::class, 'register'])->name('registeruser');
+// Route::get('/loign_user', [UserController::class, 'index'])->name('loginuser');
+
+Route::resource('loginuser', App\Http\Controllers\LoginRegisController::class);
+Route::resource('registeruser',  App\Http\Controllers\LoginRegisController::class);
 
 
 //ROUTE ADMIN

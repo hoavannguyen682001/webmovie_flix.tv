@@ -4,18 +4,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
             <div class="card">
-                <div class="card-header">{{ __('Login Admin') }}</div>
+                <div class="card-header">{{ __('Login User') }}
+                <a href="{{route('homepage')}}" style="float:right">Trờ về trang chủ</a>
+                </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{route('loginuser.store')}}">
                         @csrf
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"  required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +53,11 @@
                                 </div>
                             </div>
                         </div>
-
+                        @if(Session::has('message'))
+                        <span class="invalid-feedback" role="alert">
+                                        {{Session::get('message')}}
+                                    </span>
+                        @endif
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -64,8 +71,12 @@
                                 @endif
                             </div>
                         </div>
+
+                        <input id="permission" type="hidden" class="form-control" name="permission" required autocomplete="new-password" value="admin">
                     </form>
-                    <a href="{{ route('loginuser.index') }}">login user</a>
+
+                    <a href="{{ route('registeruser.create') }}">Đăng kí tài khoản</a></br>
+                    <a href="{{ route('login') }}">login admin</a>
                 </div>
             </div>
         </div>
