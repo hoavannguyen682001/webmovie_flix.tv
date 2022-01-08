@@ -54,6 +54,7 @@ class MovieController extends Controller
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
+        $movie->video = $data['video'];
 
         //them hinh anh
         $get_image = $request->file('image');
@@ -66,14 +67,14 @@ class MovieController extends Controller
                 $get_image->move('uploads/movie/', $new_image); // copy hinh anh va tao ten moi
                 $movie->image = $new_image;
             }
-        $get_video = $request->file('video');
-        if($get_video){
-            $get_name_video = $get_video->getClientOriginalName(); //tenhinhanh.jpg
-            $name_video = current(explode('.',$get_name_video)); //[0] => tenhinhanh . [1] => jpg , lay mang dau tien
-            $new_video = $name_video.rand(0,9999).'.'. $get_video->getClientOriginalExtension(); // random tranh trung hinh anh, getClientOriginalExtension lay duoi mo rong
-            $get_video->move('uploads/video/', $new_video); // copy hinh anh va tao ten moi
-            $movie->video = $new_video;
-        }
+        // $get_video = $request->file('video');
+        // if($get_video){
+        //     $get_name_video = $get_video->getClientOriginalName(); //tenhinhanh.jpg
+        //     $name_video = current(explode('.',$get_name_video)); //[0] => tenhinhanh . [1] => jpg , lay mang dau tien
+        //     $new_video = $name_video.rand(0,9999).'.'. $get_video->getClientOriginalExtension(); // random tranh trung hinh anh, getClientOriginalExtension lay duoi mo rong
+        //     $get_video->move('uploads/video/', $new_video); // copy hinh anh va tao ten moi
+        //     $movie->video = $new_video;
+        // }
             $movie->save();
         return redirect()->back();
     }
@@ -125,6 +126,7 @@ class MovieController extends Controller
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
+        $movie->video = $data['video'];
 
         //them hinh anh
         $get_image = $request->file('image');
@@ -140,18 +142,18 @@ class MovieController extends Controller
                 $get_image->move('uploads/movie/', $new_image); // copy hinh anh va tao ten moi
                 $movie->image = $new_image;
             }
-            $get_video = $request->file('video');
-            if($get_video){
-                if(!empty($movie->video)){
-                    unlink('uploads/video/'.$movie->video);
-                }
-                $get_name_video = $get_video->getClientOriginalName(); //tenhinhanh.jpg
-                $name_video = current(explode('.',$get_name_video)); //[0] => tenhinhanh . [1] => jpg , lay mang dau tien
-                $new_video = $name_video.rand(0,9999).'.'. $get_video->getClientOriginalExtension(); // random tranh trung hinh anh, getClientOriginalExtension lay duoi mo rong
-                $get_video->move('uploads/video/', $new_video); // copy hinh anh va tao ten moi
-                $movie->video = $new_video;
-            }
-                $movie->save();
+            // $get_video = $request->file('video');
+            // if($get_video){
+            //     if(!empty($movie->video)){
+            //         unlink('uploads/video/'.$movie->video);
+            //     }
+            //     $get_name_video = $get_video->getClientOriginalName(); //tenhinhanh.jpg
+            //     $name_video = current(explode('.',$get_name_video)); //[0] => tenhinhanh . [1] => jpg , lay mang dau tien
+            //     $new_video = $name_video.rand(0,9999).'.'. $get_video->getClientOriginalExtension(); // random tranh trung hinh anh, getClientOriginalExtension lay duoi mo rong
+            //     $get_video->move('uploads/video/', $new_video); // copy hinh anh va tao ten moi
+            //     $movie->video = $new_video;
+            // }
+            //     $movie->save();
             $movie->save();
         return redirect()->back();
     }
@@ -168,9 +170,9 @@ class MovieController extends Controller
         if(!empty($movie->image)){
             unlink('uploads/movie/'.$movie->image);
         }
-        if(!empty($movie->video)){
-            unlink('uploads/video/'.$movie->video);
-        }
+        // if(!empty($movie->video)){
+        //     unlink('uploads/video/'.$movie->video);
+        // }
         $movie->delete();
         return redirect()->back();
     }

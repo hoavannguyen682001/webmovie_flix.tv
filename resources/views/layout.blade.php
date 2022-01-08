@@ -52,12 +52,16 @@
                <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
                   <div class="header-nav">
                      <div class="col-xs-12">
-                        <form id="search-form-pc" name="halimForm" role="search" action="" method="GET">
+                        <form id="search-form-pc" name="halimForm" role="search" action="{{ route('search') }}" method="GET">
+                           {{ csrf_field() }}
                            <div class="form-group">
                               <div class="input-group col-xs-12">
-                                 <input id="search" type="text" name="s" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" required>
-                                 <i class="animate-spin hl-spin4 hidden"></i>
+                                 <input id="search" type="text" name="keywords_submit" class="form-control input-search-ajax" placeholder="Tìm kiếm..." autocomplete="off" required>
+                                 <i class="animate-spin hl-spin4 hidden"></i>    
                               </div>
+                             
+                           </div>
+                           <div class="search-ajax-result">
                            </div>
                         </form>
                         <ul class="ui-autocomplete ajax-results hidden"></ul>
@@ -163,7 +167,26 @@
       <script type='text/javascript' src='{{ asset('js/owl.carousel.min.js?ver=5.7.2') }}' id='carousel-js'></script>
 
       <script type='text/javascript' src='{{ asset('js/halimtheme-core.min.js?ver=1626273138') }}' id='halim-init-js'></script>
+      <script>
+         $('.search-ajax-result').hide();
+         $('.input-search-ajax').keyup(function(){
+            var _text = $(this).val();
+            if(_text != ''){
+               $.ajax({
+                  url: "{{route('ajaxSearch')}}?key=" + _text,
+                  type: 'GET',
+                  success: function(res){
+                     $('.search-ajax-result').show(500);
+                     $('.search-ajax-result').html(res);
+                  }
+               });
+            }else{
+               $('.search-ajax-result').html('');
+               $('.search-ajax-result').hide();
+            }     
+         });
 
+      </script>
 
 
 
@@ -240,6 +263,36 @@
          #hide_float_left_m a {background: #0098D2;padding: 5px 15px 5px 15px;color: #FFF;font-weight: 700;}
          span.bannermobi2 img {height: 70px;width: 300px;}
          #hide_float_right a { background: #01AEF0; padding: 5px 5px 1px 5px; color: #FFF;float: left;}
+      </style>
+      <style>
+
+         #search-form-pc .form-group{
+            width: 300px;
+            position: relative;
+            
+         }
+         #search-form-pc .form-control{
+            width: 100%;
+         }
+         #search-form-pc .search-ajax-result{
+            position: absolute;
+            width: 300px;
+            padding: 10px;
+            margin-top: 1px;
+            z-index: 9999;
+            background: #222d38 url(assets/images/halimBg.png) fixed center;
+         }
+         img.media-object{
+            margin: 0;
+            margin-right: 10px; 
+         }
+         #search-form-pc .search-ajax-result h4{
+            margin: 0;
+            font-size: 16px;
+         }
+         #search-form-pc .search-ajax-result .media{
+            height: 80px;
+         }
       </style>
    </body>
 </html>

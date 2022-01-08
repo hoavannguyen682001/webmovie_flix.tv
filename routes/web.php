@@ -17,6 +17,8 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [IndexController::class, 'home'] )->name('homepage');
+Route::get('/tim-kiem', [IndexController::class, 'search'] )->name('search');
+Route::get('/search-ajax', [IndexController::class, 'ajaxSearch'] )->name('ajaxSearch');
 Route::get('/danh-muc/{slug}', [IndexController::class, 'category'])->name('category');
 Route::get('/the-loai/{slug}', [IndexController::class, 'genre'])->name('genre');
 Route::get('/quoc-gia/{slug}', [IndexController::class, 'country' ])->name('country');

@@ -60,11 +60,15 @@
                             @if(isset($movie))
                                 <img width="20%" src="{{asset('uploads/movie/'.$movie->image)  }}">
                             @endif <br>
-                            {!! Form::label('video', 'Video', [])  !!}
+                            {{-- {!! Form::label('video', 'Video', [])  !!}
                             {!! Form::file('video', ['class' => 'form-control-file']) !!}
                             @if(isset($movie))
                                 <img width="20%" src="{{asset('uploads/video/'.$movie->video)  }}">
-                            @endif
+                            @endif --}}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('Url Video', 'URL Video', [])  !!}
+                            {!! Form::text('video', isset($movie) ? $movie->video :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu'])  !!}
                         </div>
                         @if(!isset($movie))
                             {!! Form::submit('Thêm',['class' =>'btn btn-success'])  !!}

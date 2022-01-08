@@ -18,4 +18,12 @@ class Movie extends Model
     public function country(){
         return $this->belongsTo(Country::class,'country_id');
     }
+
+    public function scopeSearch($query){
+        if(request('key')){
+           $key = request('key');
+           $query= $query->where('title','like', '%'.$key. '%');
+        }
+        return $query;
+    }
 }
