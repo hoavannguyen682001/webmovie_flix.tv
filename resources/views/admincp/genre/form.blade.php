@@ -20,7 +20,10 @@
                     @endif
                     <div class="form-group">
                             {!! Form::label('title', 'Title', [])  !!}
-                            {!! Form::text('title', isset($genre) ? $genre->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
+                            {!! Form::text('title', isset($genre) ? $genre->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()', 'required autocomplete' =>'title'])  !!}
+                            @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
@@ -28,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', [])  !!}
-                            {!! Form::textarea('description', isset($genre) ? $genre->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description'])  !!}
+                            {!! Form::textarea('description', isset($genre) ? $genre->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description', 'required autocomplete' =>'description'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('status', 'Status', [])  !!}
