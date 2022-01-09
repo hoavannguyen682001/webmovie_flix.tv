@@ -13,10 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @if(!isset($movie))
+                    @if(!isset($user))
                          {!! Form::open(['route' => 'user.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                     @else
-                         {!! Form::open(['route' => ['user.update', $user->id], 'method' => 'PUT',  'enctype' => 'multipart/form-data']) !!}
+                         {!! Form::open(['route' => ['user.update', $user->id], 'method' => 'PUT']) !!}
                     @endif
                         <div class="form-group">
                             {!! Form::label('name', 'Tên người dùng', [])  !!}

@@ -87,11 +87,15 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $validate  = $request->validate( [
+            'email' => ['required', 'string','email','min:5','max:255', 'unique:auths'],
+            'password' => ['required', 'string','min:8','max:255'],
+        ]);
         $data = $request->all();
         $user = Auth::find($id);
         $user->email = $data['email'];
         $user->name = $data['name'];
-
         $user->save();
         return redirect()->back();
     }
