@@ -20,11 +20,11 @@
                     @endif
                         <div class="form-group">
                             {!! Form::label('title', 'Title', [])  !!}
-                            {!! Form::text('title', isset($movie) ? $movie->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
+                            {!! Form::text('title', isset($movie) ? $movie->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()', 'required autocomplete' =>'title'])  !!}
                         </div>
                         <div class="form-group">
                           {!! Form::label('Name English', 'Name English', [])  !!}
-                          {!! Form::text('name_eng', isset($movie) ? $movie->name_eng :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu'])  !!}
+                          {!! Form::text('name_eng', isset($movie) ? $movie->name_eng :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'name_eng'])  !!}
                       </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', [])  !!}
-                            {!! Form::textarea('description', isset($movie) ? $movie->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description'])  !!}
+                            {!! Form::textarea('description', isset($movie) ? $movie->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description', 'required autocomplete' =>'description'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('status', 'Status', [])  !!}
@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('image', 'Image', [])  !!}
-                            {!! Form::file('image', ['class' => 'form-control-file']) !!}
+                            {!! Form::file('image',['class' => 'form-control-file']) !!}
                             @if(isset($movie))
                                 <img width="20%" src="{{asset('uploads/movie/'.$movie->image)  }}">
                             @endif <br>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('Url Video', 'URL Video', [])  !!}
-                            {!! Form::text('video', isset($movie) ? $movie->video :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu'])  !!}
+                            {!! Form::text('video', isset($movie) ? $movie->video :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'video'])  !!}
                         </div>
                         @if(!isset($movie))
                             {!! Form::submit('Thêm',['class' =>'btn btn-success'])  !!}

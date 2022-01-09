@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginRegisController;
 
 
 /*
@@ -27,6 +28,13 @@ Route::get('/xem-phim/{id}', [IndexController::class, 'watch'])->name('watch');
 Route::get('/episode', [IndexController::class, 'episode'])->name('episode');
 Route::get('/view/{id}', [IndexController::class, 'view'])->name('view');
 
+// Route::get('/view_register_user', [UserController::class, 'view_add'])->name('viewregisteruser');
+Route::post('/register_user', [LoginRegisController::class, 'register'])->name('registeruser');
+// Route::get('/loign_user', [UserController::class, 'index'])->name('loginuser');
+
+Route::resource('loginuser', App\Http\Controllers\LoginRegisController::class);
+Route::resource('registeruser',  App\Http\Controllers\LoginRegisController::class);
+
 
 //ROUTE ADMIN
 Route::resource('category', App\Http\Controllers\CategoryController::class);
@@ -34,6 +42,7 @@ Route::resource('country',  App\Http\Controllers\CountryController::class);
 Route::resource('episode',  App\Http\Controllers\EpisodeController::class);
 Route::resource('genre',    App\Http\Controllers\GenreController::class);
 Route::resource('movie',    App\Http\Controllers\MovieController::class);
+Route::resource('user',    App\Http\Controllers\UserController::class);
 
 Auth::routes();
 

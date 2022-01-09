@@ -57,9 +57,9 @@
                            <div class="form-group">
                               <div class="input-group col-xs-12">
                                  <input id="search" type="text" name="keywords_submit" class="form-control input-search-ajax" placeholder="Tìm kiếm..." autocomplete="off" required>
-                                 <i class="animate-spin hl-spin4 hidden"></i>    
+                                 <i class="animate-spin hl-spin4 hidden"></i>
                               </div>
-                             
+
                            </div>
                            <div class="search-ajax-result">
                            </div>
@@ -69,6 +69,38 @@
                   </div>
                </div>
                <div class="col-md-4 hidden-xs">
+
+                        @if(auth()->guest() )
+                            @if (Route::has('login'))
+                                <a class="btn btn-success" href="{{ route('loginuser.index') }}">Đăng nhập</a>
+                            @endif
+                        @else
+                                    <a href="{{ route('home') }}" style="margin-right: 50px;">Quản lí phim</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                        @endif
+                        <!-- @auth
+                                        <a href="{{ route('home') }}" style="margin-right: 50px;">Quản lí phim</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                        @else
+                            @if($auth)
+                                    <a class="btn btn-success" href="{{ route('loginuser.index') }}">Đăng nhập</a>
+                            @endif
+                         @endauth -->
+
                   <div id="get-bookmark" class="box-shadow"><i class="hl-bookmark"></i><span> Bookmarks</span><span class="count">0</span></div>
                   <div id="bookmark-list" class="hidden bookmark-list-on-pc">
                      <ul style="margin: 0;"></ul>
@@ -180,7 +212,7 @@
             }else{
                $('.search-ajax-result').html('');
                $('.search-ajax-result').hide();
-            }     
+            }
          });
 
       </script>
@@ -266,7 +298,7 @@
          #search-form-pc .form-group{
             width: 300px;
             position: relative;
-            
+
          }
          #search-form-pc .form-control{
             width: 100%;
@@ -281,7 +313,7 @@
          }
          img.media-object{
             margin: 0;
-            margin-right: 10px; 
+            margin-right: 10px;
          }
          #search-form-pc .search-ajax-result h4{
             margin: 0;

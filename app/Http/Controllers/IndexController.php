@@ -2,25 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auth;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Movie;
 use App\Models\Genre;
 use App\Models\Episode;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
     public function home(){
+        $auth = Auth::all();
         $phim_hot = Movie::where('phim_hot',1)->where('status',1)->get();
         $view = Movie::orderBy('view','DESC')->paginate(10);
         $category = Category::orderBy('id','DESC')->where('status',1)->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
         $category_home = Category::with('movie')->orderBy('id','DESC')->where('status',1)->get();
+<<<<<<< HEAD
         return view('pages.home', compact('category','genre','country', 'category_home','phim_hot','view'));
+=======
+        return view('pages.home', compact('category','genre','country', 'category_home','phim_hot', 'auth'));
+>>>>>>> 314325ac24156a244699fa7818240057632184e8
     }
     public function search(){
         $keywords = $_GET['keywords_submit'];

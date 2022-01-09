@@ -213,7 +213,7 @@
                      <div class="halim-item">
                         <a class="halim-thumb" href="{{route('movie',$hot->slug)}}" >
                            <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$hot->image)}}" title="{{$hot->title}}"></figure>
-                           <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                           <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                            <div class="icon_overlay"></div>
                            <div class="halim-post-title-box">
                               <div class="halim-post-title ">
@@ -227,7 +227,7 @@
                @endforeach
                </div>
                <script>
-                  jQuery(document).ready(function($) {				
+                  jQuery(document).ready(function($) {
                   var owl = $('#halim_related_movies-2');
                   owl.owlCarousel({
                      loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,
@@ -249,7 +249,7 @@
                     </div>
                     <div id="halim-advanced-widget-2-ajax-box" class="halim_box">
                      @foreach($cate_home->movie->take(12) as $key => $mov)
-                        <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606"> 
+                        <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606">
                             <div class="halim-item">
                             <a class="halim-thumb" href="{{ route('movie',$mov->slug) }}">
                                 <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
@@ -258,14 +258,17 @@
                                 <div class="halim-post-title-box">
                                     <div class="halim-post-title ">
                                         <p class="entry-title">{{$mov->title}}</p>
+<<<<<<< HEAD
                                         <p class="original_title">{{$mov->name_eng}}</p>
+=======
+                                        <p class="original_title">{{$mov->name_eng}} </p>
+>>>>>>> 314325ac24156a244699fa7818240057632184e8
                                     </div>
                                 </div>
                             </a>
                             </div>
                         </article>
-                      @endforeach  
-
+                      @endforeach
                     </div>
                 </section>
                 <div class="clearfix"></div>

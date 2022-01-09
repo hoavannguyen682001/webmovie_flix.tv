@@ -41,6 +41,9 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
+        $validate  = $request->validate( [
+            'title' => ['required', 'string', 'max:255', 'unique:genres'],
+        ]);
         $data = $request->all();
         $genre = new Genre();
         $genre->title = $data['title'];
