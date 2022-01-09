@@ -122,9 +122,6 @@
                                 <li class="mega"><a title="{{ $cate->title }}" href="{{ route('category', $cate->slug) }}">{{ $cate->title }}</a></li>
                             @endforeach
 
-                        {{-- <li><a title="Phim Lẻ" href="danhmuc.php">Phim Lẻ</a></li>
-                        <li><a title="Phim Bộ" href="danhmuc.php">Phim Bộ</a></li>
-                        <li><a title="Phim Chiếu Rạp" href="danhmuc.php">Phim Chiếu Rạp</a></li> --}}
                      </ul>
                   </div>
                   <ul class="nav navbar-nav navbar-left" style="background:#000;">
@@ -288,10 +285,15 @@
          }
          #search-form-pc .search-ajax-result h4{
             margin: 0;
-            font-size: 16px;
+            font-size: 12px;
          }
          #search-form-pc .search-ajax-result .media{
-            height: 80px;
+            height: 100px;
+            margin: 6px 0;
+         }
+         #search-form-pc .search-ajax-result p{
+            font-size: 11px;
+            font-style: italic
          }
       </style>
    </body>
