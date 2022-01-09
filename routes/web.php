@@ -42,6 +42,7 @@ Route::resource('country',  App\Http\Controllers\CountryController::class);
 Route::resource('episode',  App\Http\Controllers\EpisodeController::class);
 Route::resource('genre',    App\Http\Controllers\GenreController::class);
 Route::resource('movie',    App\Http\Controllers\MovieController::class);
+Route::resource('user',    App\Http\Controllers\UserController::class);
 
 Auth::routes();
 
