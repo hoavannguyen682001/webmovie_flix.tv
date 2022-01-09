@@ -85,8 +85,8 @@
                                         @csrf
                                     </form>
                         @endif
-                        <!-- @auth
-                                        <a href="{{ route('home') }}" style="margin-right: 50px;">Quản lí phim</a>
+                         {{-- @auth
+                                       <a href="{{ route('home') }}" style="margin-right: 50px;">Quản lí phim</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -99,7 +99,7 @@
                             @if($auth)
                                     <a class="btn btn-success" href="{{ route('loginuser.index') }}">Đăng nhập</a>
                             @endif
-                         @endauth -->
+                         @endauth  --}}
 
                   <div id="get-bookmark" class="box-shadow"><i class="hl-bookmark"></i><span> Bookmarks</span><span class="count">0</span></div>
                   <div id="bookmark-list" class="hidden bookmark-list-on-pc">

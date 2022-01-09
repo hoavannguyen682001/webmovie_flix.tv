@@ -22,11 +22,7 @@ class IndexController extends Controller
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
         $category_home = Category::with('movie')->orderBy('id','DESC')->where('status',1)->get();
-<<<<<<< HEAD
-        return view('pages.home', compact('category','genre','country', 'category_home','phim_hot','view'));
-=======
-        return view('pages.home', compact('category','genre','country', 'category_home','phim_hot', 'auth'));
->>>>>>> 314325ac24156a244699fa7818240057632184e8
+        return view('pages.home', compact('category','genre','country', 'category_home','phim_hot', 'auth','view'));
     }
     public function search(){
         $keywords = $_GET['keywords_submit'];
@@ -88,7 +84,7 @@ class IndexController extends Controller
         $view = Movie::orderBy('view','DESC')->paginate(10);
         // $movie = Movie::with('category','genre','country')->where('slug', $slug)->where('status',1)->first();
        
-        return view('pages.watch', compact('data','genre', 'category', 'country','view','related'));
+        return view('pages.watch', compact('data','genre', 'category', 'country','view'));
     }
      public function view($id){
         $data = Movie::find($id);

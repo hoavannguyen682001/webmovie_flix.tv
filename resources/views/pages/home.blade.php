@@ -258,11 +258,7 @@
                                 <div class="halim-post-title-box">
                                     <div class="halim-post-title ">
                                         <p class="entry-title">{{$mov->title}}</p>
-<<<<<<< HEAD
-                                        <p class="original_title">{{$mov->name_eng}}</p>
-=======
                                         <p class="original_title">{{$mov->name_eng}} </p>
->>>>>>> 314325ac24156a244699fa7818240057632184e8
                                     </div>
                                 </div>
                             </a>
