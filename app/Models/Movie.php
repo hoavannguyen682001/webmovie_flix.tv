@@ -19,6 +19,10 @@ class Movie extends Model
         return $this->belongsTo(Country::class,'country_id');
     }
 
+    public function episode(){
+        return $this->hasMany(Episode::class)->orderBy('id','DESC');
+    }
+
     public function scopeSearch($query){
         if(request('key')){
            $key = request('key');

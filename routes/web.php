@@ -24,8 +24,8 @@ Route::get('/danh-muc/{slug}', [IndexController::class, 'category'])->name('cate
 Route::get('/the-loai/{slug}', [IndexController::class, 'genre'])->name('genre');
 Route::get('/quoc-gia/{slug}', [IndexController::class, 'country' ])->name('country');
 Route::get('/phim/{slug}', [IndexController::class, 'movie'])->name('movie');
-Route::get('/xem-phim/{id}', [IndexController::class, 'watch'])->name('watch');
-Route::get('/episode', [IndexController::class, 'episode'])->name('episode');
+Route::get('/xem-phim/{slug}', [IndexController::class, 'watch'])->name('watch');
+Route::get('/episodes/{slug}', [IndexController::class, 'episode'])->name('episode');
 Route::get('/view/{id}', [IndexController::class, 'view'])->name('view');
 
 // Route::get('/view_register_user', [UserController::class, 'view_add'])->name('viewregisteruser');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Episode;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class EpisodeController extends Controller
@@ -13,7 +15,8 @@ class EpisodeController extends Controller
      */
     public function index()
     {
-        //
+        $list = Episode::with('movie')->orderBy('id','ASC')->get();
+        return view('admincp.episode.index', compact('list'));
     }
 
     /**
@@ -23,7 +26,10 @@ class EpisodeController extends Controller
      */
     public function create()
     {
-        //
+
+        $movie = Movie::pluck('title','id');
+        $list = Episode::all();
+        return view('admincp.episode.form', compact('list','movie'));
     }
 
     /**
@@ -34,7 +40,15 @@ class EpisodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $episode = new Episode();
+        $episode->movie_id = $data['movie_id'];
+        $episode->slug = $data['slug'];
+        $episode->episode = $data['episode'];
+        $episode->link = $data['link'];
+
+        $episode->save();
+        return redirect()->back();
     }
 
     /**
@@ -56,7 +70,10 @@ class EpisodeController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $movie = Movie::pluck('title','id');
+        $episode = Episode::find($id);
+        return view('admincp.episode.form', compact('movie','episode'));
     }
 
     /**
@@ -68,7 +85,15 @@ class EpisodeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $episode = Episode::find($id);
+        $episode->movie_id = $data['movie_id'];
+        $episode->slug = $data['slug'];
+        $episode->episode = $data['episode'];
+        $episode->link = $data['link'];
+
+        $episode->save();
+        return redirect()->back();
     }
 
     /**

@@ -277,7 +277,7 @@
                      <div class="section-title">
                         <span>Top Views</span>
                         {{-- <ul class="halim-popular-tab" role="tablist">
-                           
+
                            <li role="presentation" class="active">
                               <a class="ajax-tab" role="tab" data-toggle="tab" data-showpost="10" data-type="today">Day</a>
                            </li>
@@ -314,7 +314,7 @@
                               </div>
                            </div>
                            @endforeach
-                           
+
                            {{-- <div class="item post-37176">
                               <a href="chitiet.php" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ">
                                  <div class="item-link">

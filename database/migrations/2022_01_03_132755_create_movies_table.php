@@ -22,10 +22,10 @@ class CreateMoviesTable extends Migration
             $table->integer('phim_hot');
             $table->string('slug',255);
             $table->string('image',255);
-            $table->string('video',255);
             $table->integer('category_id');
             $table->integer('genre_id');
             $table->integer('country_id');
+            $table->integer('view');
             $table->timestamps();
         });
     }

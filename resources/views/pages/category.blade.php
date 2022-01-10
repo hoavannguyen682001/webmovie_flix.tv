@@ -21,7 +21,7 @@
           <div class="halim_box">
 
          @foreach($movie as $key => $mov)
-            <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606"> 
+            <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606">
                <div class="halim-item">
                <a class="halim-thumb" href="{{ route('movie',$mov->slug) }}">
                    <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
@@ -49,8 +49,8 @@
                 <li><a class="page-numbers" href="">55</a></li>
                 <li><a class="next page-numbers" href=""><i class="hl-down-open rotate-right"></i></a></li>
              </ul> --}}
-             {!! $movie->links("pagination::bootstrap-4") !!}
-
+              {!! $movie->links("pagination::bootstrap-4") !!}
+ 
           </div>
        </section>
     </main>
@@ -60,7 +60,7 @@
             <div class="section-title">
                <span>Top Views</span>
                {{-- <ul class="halim-popular-tab" role="tablist">
-                  
+
                   <li role="presentation" class="active">
                      <a class="ajax-tab" role="tab" data-toggle="tab" data-showpost="10" data-type="today">Day</a>
                   </li>
@@ -97,7 +97,7 @@
                      </div>
                   </div>
                   @endforeach
-                  
+
                   {{-- <div class="item post-37176">
                      <a href="chitiet.php" title="CHỊ MƯỜI BA: BA NGÀY SINH TỬ">
                         <div class="item-link">

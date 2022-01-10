@@ -63,40 +63,41 @@ class IndexController extends Controller
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
         $contry_slug = Country::where('slug',$slug)->first();
+
+
         $movie = Movie::where('country_id',$contry_slug->id)->paginate(20);
+
+
         $view = Movie::orderBy('view','DESC')->paginate(10);
         return view('pages.country', compact('category','genre','country', 'contry_slug','movie','view'));
     }
     public function movie($slug){
+        $data = Episode::with('movie')->get();
         $category = Category::orderBy('id','DESC')->where('status',1)->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
         $movie = Movie::with('category','genre','country')->where('slug', $slug)->where('status',1)->first();
+        // $movie_slug = Movie::where('slug', $slug)->first();
         $related= Movie::with('category','genre','country')->where('category_id', $movie->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
 
-        return view('pages.movie',compact('category','genre','country','movie','related'));
+        $episode_first = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->id)->first();
+
+        return view('pages.movie',compact('category','genre','country','movie','related','data','episode_first'));
     }
-    public function watch($id){
-        $data = Movie::find($id);
+
+    public function episode($slug){
+        $data = Episode::with('movie')->where('id', $slug)->get();
+        // $data = DB::table('episodes')->where('movie_id', $id)->get();
         $category = Category::orderBy('id','DESC')->where('status',1)->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
         $view = Movie::orderBy('view','DESC')->paginate(10);
-        // $movie = Movie::with('category','genre','country')->where('slug', $slug)->where('status',1)->first();
-       
-        return view('pages.watch', compact('data','genre', 'category', 'country','view'));
+        $movie = Episode::with('movie')->where('slug', $slug)->first();
+
+        $episode = Episode::with('movie')->where('slug', $slug)->where('movie_id',$movie->movie_id)->first();
+
+        $episode_all = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->movie_id)->get();
+
+        return view('pages.episode', compact('data','genre', 'category', 'country','view','episode','episode_all'));
     }
-     public function view($id){
-        $data = Movie::find($id);
-
-        return view('pages.watch', compact('data'));
-    }
-    public function episode($id){
-        $data = Movie::find($id);
-
-       return view('pages.episode');
-    }
-
-
-
 }

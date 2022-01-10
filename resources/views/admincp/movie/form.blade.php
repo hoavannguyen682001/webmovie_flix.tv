@@ -66,10 +66,10 @@
                                 <img width="20%" src="{{asset('uploads/video/'.$movie->video)  }}">
                             @endif --}}
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             {!! Form::label('Url Video', 'URL Video', [])  !!}
                             {!! Form::text('video', isset($movie) ? $movie->video :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'video'])  !!}
-                        </div>
+                        </div> -->
                         @if(!isset($movie))
                             {!! Form::submit('Thêm',['class' =>'btn btn-success'])  !!}
                         @else

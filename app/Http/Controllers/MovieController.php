@@ -43,6 +43,7 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+        $view = 0;
         $data = $request->all();
         $movie = new Movie();
         $movie->title = $data['title'];
@@ -54,7 +55,8 @@ class MovieController extends Controller
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
-        $movie->video = $data['video'];
+        // $movie->video = $data['video'];
+        $movie->view = 0;
 
         //them hinh anh
         $get_image = $request->file('image');
@@ -126,7 +128,7 @@ class MovieController extends Controller
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
-        $movie->video = $data['video'];
+        // $movie->video = $data['video'];
 
         //them hinh anh
         $get_image = $request->file('image');

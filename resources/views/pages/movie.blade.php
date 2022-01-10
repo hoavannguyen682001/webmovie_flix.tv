@@ -28,11 +28,11 @@
                    </div>
                 </div>
                 <div class="movie_info col-xs-12">
-                   <div class="movie-poster col-md-3">
+                <div class="movie-poster col-md-3">
                       <img class="movie-thumb" src="{{asset('uploads/movie/'.$movie->image)}}" alt="{{ $movie->title }}">
                       <div class="bwa-content">
                          <div class="loader"></div>
-                         <a href="{{ route('watch', $movie->id) }}" class="bwac-btn">
+                         <a href="{{ url('episodes/'.$episode_first->slug ) }}" class="bwac-btn">
                          <i class="fa fa-play"></i>
                          </a>
                       </div>
