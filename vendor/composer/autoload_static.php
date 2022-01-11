@@ -1807,7 +1807,6 @@ class ComposerStaticInit39c74eb2123b5fb4305ae52fa38b8de8
         'Illuminate\\Console\\Scheduling\\Event' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Scheduling/Event.php',
         'Illuminate\\Console\\Scheduling\\EventMutex' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Scheduling/EventMutex.php',
         'Illuminate\\Console\\Scheduling\\ManagesFrequencies' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Scheduling/ManagesFrequencies.php',
-        'Illuminate\\Console\\Scheduling\\Schedule' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Scheduling/Schedule.php',
         'Illuminate\\Console\\Scheduling\\ScheduleClearCacheCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleClearCacheCommand.php',
         'Illuminate\\Console\\Scheduling\\ScheduleFinishCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleFinishCommand.php',
         'Illuminate\\Console\\Scheduling\\ScheduleListCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleListCommand.php',

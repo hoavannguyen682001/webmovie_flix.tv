@@ -1281,7 +1281,6 @@ return array(
     'Illuminate\\Console\\Scheduling\\Event' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/Event.php',
     'Illuminate\\Console\\Scheduling\\EventMutex' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/EventMutex.php',
     'Illuminate\\Console\\Scheduling\\ManagesFrequencies' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/ManagesFrequencies.php',
-    'Illuminate\\Console\\Scheduling\\Schedule' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/Schedule.php',
     'Illuminate\\Console\\Scheduling\\ScheduleClearCacheCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleClearCacheCommand.php',
     'Illuminate\\Console\\Scheduling\\ScheduleFinishCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleFinishCommand.php',
     'Illuminate\\Console\\Scheduling\\ScheduleListCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleListCommand.php',

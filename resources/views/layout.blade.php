@@ -25,7 +25,7 @@
       <meta property="og:image" content="" />
       <meta property="og:image:width" content="300" />
       <meta property="og:image:height" content="55" />
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
       <link rel='dns-prefetch' href='//s.w.org' />
 
@@ -72,7 +72,7 @@
 
                         @if(auth()->guest() )
                             @if (Route::has('login'))
-                                <a class="btn btn-success" href="{{ route('loginuser.index') }}">Đăng nhập</a>
+                                
                             @endif
                         @else
                                     <a href="{{ route('home') }}" style="margin-right: 50px;">Quản lí phim</a>

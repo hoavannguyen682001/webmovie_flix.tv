@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </form>
-                    <a href="{{ route('loginuser.index') }}">login user</a>
+                    
                 </div>
             </div>
         </div>
