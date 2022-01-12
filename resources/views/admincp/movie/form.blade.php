@@ -28,7 +28,7 @@
                       </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
-                            {!! Form::text('slug', isset($movie) ? $movie->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
+                            {!! Form::text('slug', isset($movie) ? $movie->slug :'', ['class' => 'form-control', 'readonly','placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', [])  !!}

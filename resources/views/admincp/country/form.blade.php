@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', [])  !!}
-                            {!! Form::textarea('description', isset($country) ? $country->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description',  'required autocomplete' =>'description'])  !!}
+                            {!! Form::textarea('description', isset($country) ? $country->description :'', ['style'=> 'resize:none','class' => 'form-control', 'readonly','placeholder'=>'nhap du lieu', 'id' => 'description',  'required autocomplete' =>'description'])  !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('status', 'Status', [])  !!}

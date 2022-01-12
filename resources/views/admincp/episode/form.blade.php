@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
-                            {!! Form::text('slug', isset($episode) ? $episode->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
+                            {!! Form::text('slug', isset($episode) ? $episode->slug :'', ['class' => 'form-control','readonly', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         @error('slug')
                                 <div class="alert alert-danger">{{ $message }}</div>
