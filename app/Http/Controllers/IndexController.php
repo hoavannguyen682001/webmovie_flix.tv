@@ -8,6 +8,7 @@ use App\Models\Country;
 use App\Models\Movie;
 use App\Models\Genre;
 use App\Models\Episode;
+use App\Models\Rating;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -71,7 +72,7 @@ class IndexController extends Controller
         $view = Movie::orderBy('view','DESC')->take(10)->get();
         return view('pages.country', compact('category','genre','country', 'contry_slug','movie','view'));
     }
-    public function movie($slug){
+    public function movie($slug, Request $request){
         $data = Episode::with('movie')->get();
         $category = Category::orderBy('id','DESC')->where('status',1)->get();
         $genre = Genre::orderBy('id','DESC')->get();
@@ -80,9 +81,12 @@ class IndexController extends Controller
         // $movie_slug = Movie::where('slug', $slug)->first();
         $related= Movie::with('category','genre','country')->where('category_id', $movie->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
 
-        $episode_first = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->id)->first();
+        $url = $request->url();
 
-        return view('pages.movie',compact('category','genre','country','movie','related','data','episode_first'));
+        $episode_first = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->id)->first();
+        $rating = Rating::where('movie_id', $movie->id)->avg('rating');
+        $rating = round($rating);
+        return view('pages.movie',compact('url','rating','category','genre','country','movie','related','data','episode_first'));
     }
 
     public function episode($slug){

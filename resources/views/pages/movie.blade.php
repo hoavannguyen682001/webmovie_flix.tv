@@ -1,4 +1,8 @@
 @extends('layout')
+@section('facebook')
+
+@endsection
+
 @section('content')
 <div class="row container" id="wrapper">
     <div class="halim-panel-filter">
@@ -47,6 +51,34 @@
                          <li class="list-info-group-item"><span>Danh mục phim</span> : <a href="{{route('category',$movie->category->slug)}}" rel="tag">{{ $movie->category->title}}</a></li>
                          <li class="list-info-group-item"><span>Quốc gia</span> : <a href="{{route('country',$movie->country->slug)}}" rel="tag">{{ $movie->country->title}}</a></li>
                          </ul>
+
+                         <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="7vaWVBy7"></script>
+
+                        <div class="fb-share-button" data-href="{{$url}}" data-layout="box_count" data-size="small"><a target="_blank"
+                         href="https://www.facebook.com/sharer/sharer.php?u={{$url}}" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                         <p>Đánh giá của bạn:</p>
+                         <ul class="list-inline rating" title="Average Rating" style="float: left;" >
+                            @for( $count = 5; $count>=1; $count--)
+                                    @php
+                                        if($count <= $rating){
+                                            $color = 'color:#ffcc00';
+                                        }else{
+                                            $color = 'color:#ccc';
+                                        }
+                                    @endphp
+                            <li title="Đánh giá sao"
+                                id="{{$movie->id}}-{{$count}}"
+                                data-index="{{$count}}"
+                                data-movie_id="{{ $movie->id }}"
+                                data-rating="{{$rating}}"
+                                class="rating"
+                                style="cursor: pointer;{{$color}};font-size: 30px;">
+                                &#9733;
+                            </li>
+                            @endfor
+                         </ul>
+
                       <div class="movie-trailer hidden"></div>
                    </div>
                 </div>
@@ -67,6 +99,9 @@
              </div>
           </div>
        </section>
+
+       <div class="fb-comments" data-href="http://127.0.0.1:8000/phim/ma-tran" data-width="" data-numposts="5" style="background-color: while !important; color: while !important;"></div>
+
        <section class="related-movies">
           <div id="halim_related_movies-2xx" class="wrap-slider">
              <div class="section-bar clearfix">
@@ -106,4 +141,9 @@
     </main>
     <aside id="sidebar" class="col-xs-12 col-sm-12 col-md-4"></aside>
 </div>
+<style>
+    .fb-comments{
+        background-color: while !important; color: while !important;
+    }
+</style>
 @endsection
