@@ -78,6 +78,7 @@ class IndexController extends Controller
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
         $movie = Movie::with('category','genre','country')->where('slug', $slug)->where('status',1)->first();
+
         // $movie_slug = Movie::where('slug', $slug)->first();
         $related= Movie::with('category','genre','country')->where('category_id', $movie->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
 
@@ -86,26 +87,26 @@ class IndexController extends Controller
         $episode_first = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->id)->first();
         $rating = Rating::where('movie_id', $movie->id)->avg('rating');
         $rating = round($rating);
+
+
         return view('pages.movie',compact('url','rating','category','genre','country','movie','related','data','episode_first'));
     }
 
     public function episode($slug){
-        $data = Episode::with('movie')->where('id', $slug)->get();
-        // $data = DB::table('episodes')->where('movie_id', $id)->get();
         $category = Category::orderBy('id','DESC')->where('status',1)->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
-        
-        $movie = Episode::with('movie')->where('slug', $slug)->first();
+
+
+        $movie = Episode::where('slug', $slug)->first();
         $view_movie = Movie::find($movie->movie_id);
         $view = Movie::orderBy('view','DESC')->take(10)->get();
 
         $movie_slug = Movie::with('episode')->where('id',$movie->movie_id)->first();
-
         $movie_slug->increment('view');
         $movie_slug->save();
 
-        
+
         $movie_relate = Movie::with('category','genre','country')->where('slug', $movie_slug->slug)->where('status',1)->first();
         $related= Movie::with('category','genre','country')->where('category_id', $movie_relate->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug',[$movie_slug->slug])->get();
 
@@ -113,6 +114,7 @@ class IndexController extends Controller
 
         $episode_all = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->movie_id)->get();
 
-        return view('pages.episode', compact('data','genre', 'category', 'country','view','episode','episode_all','related','view_movie'));
+
+        return view('pages.episode', compact('genre', 'category', 'country','view','episode','episode_all','related','view_movie'));
     }
 }

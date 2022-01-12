@@ -26,6 +26,9 @@
                             {!! Form::label('slug', 'Slug', [])  !!}
                             {!! Form::text('slug', isset($episode) ? $episode->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
+                        @error('slug')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         <div class="form-group">
                             {!! Form::label('link', 'URL Video', [])  !!}
                             {!! Form::text('link', isset($episode) ? $episode->link :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'link'])  !!}

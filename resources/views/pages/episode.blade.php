@@ -77,7 +77,7 @@
                        <div role="tabpanel" class="tab-pane active server-1" id="server-0">
                           <div class="halim-server">
                             @foreach($episode_all as $key => $epi)
-                                    <a href="{{ url('episodes/'.$epi->slug) }}">{{ $epi->episode }}</a>
+                                    <a href="{{ url('episodes/'.$epi->slug) }}">{{ $key+1 }}</a>
                             @endforeach
 
                              <div class="clearfix"></div>

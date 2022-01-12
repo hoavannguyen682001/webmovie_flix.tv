@@ -4,6 +4,9 @@
 @endsection
 
 @section('content')
+@php
+    echo $episode_first->link;
+@endphp
 <div class="row container" id="wrapper">
     <div class="halim-panel-filter">
        <div class="panel-heading">
