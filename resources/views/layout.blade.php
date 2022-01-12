@@ -40,7 +40,7 @@
 
       <script type='text/javascript' src='{{ asset('js/jquery.min.js?ver=5.7.2') }}' id='halim-jquery-js'></script>
       <link rel="stylesheet" href="../resources/css/app.css">
-      
+
       <style type="text/css" id="wp-custom-css">
          .textwidget p a img {
          width: 100%;
@@ -61,12 +61,12 @@
             font-style: normal;
          }
          .fa-film::before{
-            margin-top: 0px; 
+            margin-top: 0px;
             color: #c0392b;
          }
       </style>
 
-      
+
       <style>#header .site-title {background: url(https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png) no-repeat top left;background-size: contain;text-indent: -9999px;}</style>
    </head>
    <body class="home blog halimthemes halimmovies" data-masonry="">
@@ -100,7 +100,7 @@
 
                         @if(auth()->guest() )
                             @if (Route::has('login'))
-                                
+
                             @endif
                         @else
                                     <a href="{{ route('home') }}" style="margin-right: 50px;">Quản lí phim</a>
@@ -331,7 +331,7 @@
          }
          #search-form-pc .form-control{
             width: 100%;
-            margin-top: 15px; 
+            margin-top: 15px;
          }
          #search-form-pc .search-ajax-result{
             position: absolute;

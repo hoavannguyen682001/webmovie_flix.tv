@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav mr-auto">
     <li class="nav-item">
         <a class="nav-link" href="{{ route('category.index') }}">Danh mục phim</a>
@@ -44,3 +44,50 @@
     </form> -->
   </div>
 </nav>
+<head>
+    <style>
+    nav  {
+ background: #488cf6;
+ border-color: #488cf6;
+ box-shadow: 0 0 12px 0 #ccc;
+}
+nav  a {
+    color: #dfe0ed;
+}
+nav.navbar-custom ul.navbar-nav a {
+    color: #dfe0ed;
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    border-color: #fff;
+}
+
+nav ul.navbar-nav li.nav-item a:hover,
+nav ul.navbar-nav li.nav-item a:visited,
+nav ul.navbar-nav li.nav-item a:focus,
+nav ul.navbar-nav li.nav-item a:active {
+    background: #5CB85C;
+}
+nav ul.navbar-nav a:hover {
+    border-color: #5CB85C;
+}
+nav.navbar-custom button.navbar-toggle {
+    background: #5CB85C;
+    border-radius: 2px;
+}
+nav.navbar-custom button.navbar-toggle:hover {
+    background: #999;
+}
+nav.navbar-custom span.badge {
+    background: #5CB85C;
+    font-weight: normal;
+    font-size: 11px;
+     margin: 0 4px;
+}
+
+nav.navbar-custom span.badge.new {
+    background: rgba(255, 0, 0, 0.8); color: #fff;
+}
+
+
+    </style>
+</head>

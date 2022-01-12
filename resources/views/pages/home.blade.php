@@ -243,7 +243,7 @@
                 <section id="halim-advanced-widget-2">
 
                     <div class="section-heading">
-                        <a href="danhmuc.php" title="Phim Bộ">
+                        <a href="{{ route('category', $cate_home->slug) }}" title="Phim Bộ">
                         <span class="h-text">{{$cate_home->title}}</span>
                         </a>
                     </div>
@@ -253,7 +253,7 @@
                             <div class="halim-item">
                             <a class="halim-thumb" href="{{ route('movie',$mov->slug) }}">
                                 <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
-                                <span class="status">TẬP 15</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
+                                <span class="status"></span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                                 <div class="icon_overlay"></div>
                                 <div class="halim-post-title-box">
                                     <div class="halim-post-title ">

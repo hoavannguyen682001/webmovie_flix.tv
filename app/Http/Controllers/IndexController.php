@@ -98,7 +98,7 @@ class IndexController extends Controller
 
         $movie_slug->increment('view');
         $movie_slug->save();
-       
+
         $movie_relate = Movie::with('category','genre','country')->where('slug', $movie_slug->slug)->where('status',1)->first();
         $related= Movie::with('category','genre','country')->where('category_id', $movie_relate->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug',[$movie_slug->slug])->get();
 

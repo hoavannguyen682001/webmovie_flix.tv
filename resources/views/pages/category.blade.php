@@ -25,7 +25,7 @@
                <div class="halim-item">
                <a class="halim-thumb" href="{{ route('movie',$mov->slug) }}">
                    <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
-                   <span class="status">TẬP 15</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
+                   <span class="status"></span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span>
                    <div class="icon_overlay"></div>
                    <div class="halim-post-title-box">
                        <div class="halim-post-title ">
@@ -50,7 +50,7 @@
                 <li><a class="next page-numbers" href=""><i class="hl-down-open rotate-right"></i></a></li>
              </ul> --}}
               {!! $movie->links("pagination::bootstrap-4") !!}
- 
+
           </div>
        </section>
     </main>
