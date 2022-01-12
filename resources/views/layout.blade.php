@@ -10,10 +10,10 @@
       <meta name="language" content="Việt Nam">
 
 
-      <link rel="shortcut icon" href="https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png" type="image/x-icon" />
+      <link rel="shortcut icon" href="{{ asset('/uploads/movie/logo.png') }}" type="image/x-icon" />
       <meta name="revisit-after" content="1 days" />
       <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-      <title>Phim hay 2021 - Xem phim hay nhất</title>
+      <title>Flix.TV</title>
       <meta name="description" content="Phim hay 2021 - Xem phim hay nhất, xem phim online miễn phí, phim hot , phim nhanh" />
       <link rel="canonical" href="">
       <link rel="next" href="" />
@@ -27,18 +27,46 @@
       <meta property="og:image:height" content="55" />
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+
       <link rel='dns-prefetch' href='//s.w.org' />
 
       <link rel='stylesheet' id='bootstrap-css' href='{{ asset('css/bootstrap.min.css?ver=5.7.2') }}' media='all' />
 
       <link rel='stylesheet' id='style-css' href='{{ asset('css/style.css?ver=5.7.2') }}' media='all' />
       <link rel='stylesheet' id='wp-block-library-css' href='{{ asset('css/style.min.css?ver=5.7.2') }}' media='all' />
+
+      <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
       <script type='text/javascript' src='{{ asset('js/jquery.min.js?ver=5.7.2') }}' id='halim-jquery-js'></script>
+      <link rel="stylesheet" href="../resources/css/app.css">
+      
       <style type="text/css" id="wp-custom-css">
          .textwidget p a img {
          width: 100%;
          }
+         #headwrap{
+            margin: 0;
+         }
+         #headwrap .col-md-3.slogan{
+            font-size: 40px;
+            font-style: italic;
+            margin-top: 0;
+            color: #FFF;
+         }
+         .main-color{
+            color: #c0392b;
+         }
+         #headwrap .col-md-3.slogan.fa-film::before{
+            font-style: normal;
+         }
+         .fa-film::before{
+            margin-top: 0px; 
+            color: #c0392b;
+         }
       </style>
+
+      
       <style>#header .site-title {background: url(https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png) no-repeat top left;background-size: contain;text-indent: -9999px;}</style>
    </head>
    <body class="home blog halimthemes halimmovies" data-masonry="">
@@ -46,7 +74,7 @@
          <div class="container">
             <div class="row" id="headwrap">
                <div class="col-md-3 col-sm-6 slogan">
-                  <p class="site-title"><a class="logo" href="" title="phim hay ">Phim Hay</p>
+                  <i class="fa fa-film"></i> Fl<span class="main-color">i</span>x
                   </a>
                </div>
                <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
@@ -101,10 +129,10 @@
                             @endif
                          @endauth  --}}
 
-                  <div id="get-bookmark" class="box-shadow"><i class="hl-bookmark"></i><span> Bookmarks</span><span class="count">0</span></div>
+                  {{-- <div id="get-bookmark" class="box-shadow"><i class="hl-bookmark"></i><span> Bookmarks</span><span class="count">0</span></div>
                   <div id="bookmark-list" class="hidden bookmark-list-on-pc">
                      <ul style="margin: 0;"></ul>
-                  </div>
+                  </div> --}}
                </div>
             </div>
          </div>
@@ -127,7 +155,7 @@
                   <span class="count">0</span>
                   </button>
                   <button type="button" class="navbar-toggle collapsed pull-right get-locphim-on-mobile">
-                  <a href="javascript:;" id="expand-ajax-filter" style="color: #ffed4d;">Lọc <i class="fas fa-filter"></i></a>
+                  <a href="javascript:;" id="expand-ajax-filter" style="color: #ffed4d;">Lọc </a>
                   </button>
                </div>
                <div class="collapse navbar-collapse" id="halim">
@@ -157,7 +185,7 @@
                      </ul>
                   </div>
                   <ul class="nav navbar-nav navbar-left" style="background:#000;">
-                     <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>
+                     <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim </a></li>
                   </ul>
                </div>
             </nav>
@@ -183,9 +211,10 @@
             <div class="row container">
                <div class="widget about col-xs-12 col-sm-4 col-md-4">
                   <div class="footer-logo">
-                     <img class="img-responsive" src="https://img.favpng.com/9/23/19/movie-logo-png-favpng-nRr1DmYq3SNYSLN8571CHQTEG.jpg" alt="Phim hay 2021- Xem phim hay nhất" />
+                     {{-- <img class="img-responsive" src="https://img.favpng.com/9/23/19/movie-logo-png-favpng-nRr1DmYq3SNYSLN8571CHQTEG.jpg" alt="Phim hay 2021- Xem phim hay nhất" /> --}}
                   </div>
-                  Liên hệ QC: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e5958d8c888d849ccb868aa58288848c89cb868a88">[email&#160;protected]</a>
+                  {{-- Liên hệ QC: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e5958d8c888d849ccb868aa58288848c89cb868a88">[email&#160;protected]</a> --}}
+                  <i class="fa fa-film"></i> <i class="fa fa-copyright"><span style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"> 2022, All rights reserved</span></i>
                </div>
             </div>
          </div>
@@ -302,6 +331,7 @@
          }
          #search-form-pc .form-control{
             width: 100%;
+            margin-top: 15px; 
          }
          #search-form-pc .search-ajax-result{
             position: absolute;

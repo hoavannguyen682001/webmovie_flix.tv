@@ -20,12 +20,12 @@
 
              <div class="halim-movie-wrapper">
                 <div class="title-block">
-                   <div id="bookmark" class="bookmark-img-animation primary_ribbon" data-id="38424">
+                   {{-- <div id="bookmark" class="bookmark-img-animation primary_ribbon" data-id="38424">
                       <div class="halim-pulse-ring"></div>
                    </div>
                    <div class="title-wrapper" style="font-weight: bold;">
                       Bookmark
-                   </div>
+                   </div> --}}
                 </div>
                 <div class="movie_info col-xs-12">
                 <div class="movie-poster col-md-3">
@@ -96,7 +96,10 @@
              <script>
                 $(document).ready(function($) {
                 var owl = $('#halim_related_movies-2');
-                owl.owlCarousel({loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:4},1000: {items: 4}}})});
+                owl.owlCarousel({
+                   loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,
+                   navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+                   responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:4},1000: {items: 4}}})});
              </script>
           </div>
        </section>

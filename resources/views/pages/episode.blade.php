@@ -5,7 +5,7 @@
            <div class="panel-heading">
               <div class="row">
                  <div class="col-xs-6">
-                    <div class="yoast_breadcrumb hidden-xs"><span><span><a href="">{{$episode->movie->category->title}}</a> » <span><a href="danhmuc.php">Trung Quốc</a> » <span class="breadcrumb_last" aria-current="page">Tôi Và Chúng Ta Ở Bên Nhau</span></span></span></span></div>
+                    <div class="yoast_breadcrumb hidden-xs"><span><span><a href="#">{{$episode->movie->category->title}}</a> » <span><a href="#">{{$episode->movie->country->title}}</a> » <span class="breadcrumb_last" aria-current="page">{{$episode->movie->title}}</span></span></span></span></div>
                  </div>
               </div>
            </div>
@@ -118,7 +118,10 @@
            <script>
               jQuery(document).ready(function($) {
               var owl = $('#halim_related_movies-2');
-              owl.owlCarousel({loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:4},1000: {items: 4}}})});
+              owl.owlCarousel(
+                 {loop: true,margin: 4,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,
+                 navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+                 responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:4},1000: {items: 4}}})});
            </script>
            </div>
            </section>
