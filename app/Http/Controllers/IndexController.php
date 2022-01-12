@@ -94,11 +94,11 @@ class IndexController extends Controller
         $view = Movie::orderBy('view','DESC')->take(10)->get();
         $movie = Episode::with('movie')->where('slug', $slug)->first();
 
-        $movie_id = Movie::find($slug);
-        $movie_id->increment('view');
-        $movie_id->save();
-
         $movie_slug = Movie::with('episode')->where('id',$movie->movie_id)->first();
+
+        $movie_slug->increment('view');
+        $movie_slug->save();
+       
         $movie_relate = Movie::with('category','genre','country')->where('slug', $movie_slug->slug)->where('status',1)->first();
         $related= Movie::with('category','genre','country')->where('category_id', $movie_relate->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug',[$movie_slug->slug])->get();
 
@@ -106,6 +106,6 @@ class IndexController extends Controller
 
         $episode_all = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->movie_id)->get();
 
-        return view('pages.episode', compact('data','genre', 'category', 'country','view','episode','episode_all','movie_id','related'));
+        return view('pages.episode', compact('data','genre', 'category', 'country','view','episode','episode_all','related'));
     }
 }
