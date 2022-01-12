@@ -76,6 +76,7 @@
          <div class="container">
             <div class="row" id="headwrap">
                <div class="col-md-3 col-sm-6 slogan">
+                  <a href="{{ route('homepage') }}">
                   <i class="fa fa-film"></i> Fl<span class="main-color">i</span>x
                   </a>
                </div>

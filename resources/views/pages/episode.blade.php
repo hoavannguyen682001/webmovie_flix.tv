@@ -26,20 +26,20 @@
                     <ul class="col-xs-12 col-md-8">
                        <div id="autonext" class="btn-cs autonext">
                           <i class="icon-autonext-sm"></i>
-                          <span><i class="hl-next"></i> Autonext: <span id="autonext-status">On</span></span>
+                          <span><i class="fa fa-step-forward"></i> Autonext: <span id="autonext-status">On</span></span>
                        </div>
-                       <div id="explayer" class="hidden-xs"><i class="hl-resize-full"></i>
+                       <div id="explayer" class="hidden-xs"><i class="fa fa-expand"></i>
                           Expand
                        </div>
-                       <div id="toggle-light"><i class="hl-adjust"></i>
+                       <div id="toggle-light"><i class="fa fa-lightbulb-o"></i>
                           Light Off
                        </div>
-                       <div id="report" class="halim-switch"><i class="hl-attention"></i> Report</div>
-                       <div class="luotxem"><i class="hl-eye"></i>
-                          <span>1K</span> lượt xem
+                       <div id="report" class="halim-switch"><i class="fa fa-exclamation-circle"></i> Report</div>
+                       <div class="luotxem"><i class="fa fa-eye"></i>
+                          <span>{{ $view_movie->view }}</span> lượt xem
                        </div>
                        <div class="luotxem">
-                          <a class="visible-xs-inline" data-toggle="collapse" href="#moretool" aria-expanded="false" aria-controls="moretool"><i class="hl-forward"></i> Share</a>
+                          <a class="visible-xs-inline" data-toggle="collapse" href="#moretool" aria-expanded="false" aria-controls="moretool"><i class="fa fa-share-alt"></i> Share</a>
                        </div>
                     </ul>
                  </div>
@@ -53,13 +53,13 @@
                  <div class="clearfix"></div>
                  <div class="clearfix"></div>
                  <div class="title-block">
-                    <a href="javascript:;" data-toggle="tooltip" title="Add to bookmark">
+                    {{-- <a href="javascript:;" data-toggle="tooltip" title="Add to bookmark">
                        <div id="bookmark" class="bookmark-img-animation primary_ribbon" data-id="37976">
                           <div class="halim-pulse-ring"></div>
                        </div>
-                    </a>
+                    </a> --}}
                     <div class="title-wrapper-xem full">
-                       <h1 class="entry-title"><a href="" title="Tôi Và Chúng Ta Ở Bên Nhau" class="tl">Tôi Và Chúng Ta Ở Bên Nhau tập 1</a></h1>
+                       <h1 class="entry-title"><a href="" title="{{$episode->movie->title}}" class="tl">{{$episode->movie->title}}</a></h1>
                     </div>
                  </div>
                  <div class="entry-content htmlwrap clearfix collapse" id="expand-post-content">
@@ -71,13 +71,13 @@
                  </div>
                  <div id="halim-list-server">
                     <ul class="nav nav-tabs" role="tablist">
-                       <li role="presentation" class="active server-1"><a href="#server-0" aria-controls="server-0" role="tab" data-toggle="tab"><i class="hl-server"></i> Vietsub</a></li>
+                       <li role="presentation" class="active server-1"><a href="#server-0" aria-controls="server-0" role="tab" data-toggle="tab"><i class="fa fa-tags"></i> Vietsub</a></li>
                     </ul>
                     <div class="tab-content">
                        <div role="tabpanel" class="tab-pane active server-1" id="server-0">
                           <div class="halim-server">
                             @foreach($episode_all as $key => $epi)
-                                    <a href="{{ url('episodes/'.$epi->slug) }}">{{ $key+1 }}</a>
+                                    <a href="{{ url('episodes/'.$epi->slug) }}">{{ $epi->episode }}</a>
                             @endforeach
 
                              <div class="clearfix"></div>
@@ -152,7 +152,7 @@
                <div role="tabpanel" class="tab-pane active halim-ajax-popular-post">
                   <div class="halim-ajax-popular-post-loading hidden"></div>
                   <div id="halim-ajax-popular-post" class="popular-post">
-                     @foreach ($view as $key => $mov )
+                     @foreach ($view as $key => $mov)
                      <div class="item post-37176">
                         <a href="{{ route('movie',$mov->slug) }}" title="{{ $mov->title }}">
                            <div class="item-link">
