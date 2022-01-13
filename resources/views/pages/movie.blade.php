@@ -1,6 +1,10 @@
 @extends('layout')
 @section('facebook')
-
+<meta property="og:url"           content="{{ $url }}" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{ $movie->title }}" />
+<meta property="og:description"   content="{{$movie->description}}" />
+<meta property="og:image"         content="{{$image}}" />
 @endsection
 
 @section('content')
@@ -103,8 +107,6 @@
           </div>
        </section>
 
-       <div class="fb-comments" data-href="http://127.0.0.1:8000/phim/ma-tran" data-width="" data-numposts="5" style="background-color: while !important; color: while !important;"></div>
-
        <section class="related-movies">
           <div id="halim_related_movies-2xx" class="wrap-slider">
              <div class="section-bar clearfix">
@@ -144,9 +146,4 @@
     </main>
     <aside id="sidebar" class="col-xs-12 col-sm-12 col-md-4"></aside>
 </div>
-<style>
-    .fb-comments{
-        background-color: while !important; color: while !important;
-    }
-</style>
 @endsection

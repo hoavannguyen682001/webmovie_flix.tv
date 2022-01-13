@@ -83,13 +83,14 @@ class IndexController extends Controller
         $related= Movie::with('category','genre','country')->where('category_id', $movie->category->id)->orderby(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
 
         $url = $request->url();
+        $image = url('public/uploads/movie'.'/'.$movie->image);
 
         $episode_first = Episode::with('movie')->orderBy('id','ASC')->where('movie_id', $movie->id)->first();
         $rating = Rating::where('movie_id', $movie->id)->avg('rating');
         $rating = round($rating);
 
 
-        return view('pages.movie',compact('url','rating','category','genre','country','movie','related','data','episode_first'));
+        return view('pages.movie',compact('image','url','rating','category','genre','country','movie','related','data','episode_first'));
     }
 
     public function episode($slug){

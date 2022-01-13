@@ -91,6 +91,8 @@
                  </div>
            </section>
            <section class="related-movies">
+           <div class="fb-comments" data-href="http://127.0.0.1:8000/phim/ma-tran" data-width="" data-numposts="5" style="background-color: while; color: while"></div>
+
            <div id="halim_related_movies-2xx" class="wrap-slider">
            <div class="section-bar clearfix">
            <h3 class="section-title"><span>CÓ THỂ BẠN MUỐN XEM</span></h3>

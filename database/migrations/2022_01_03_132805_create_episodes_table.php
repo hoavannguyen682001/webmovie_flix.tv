@@ -17,7 +17,7 @@ class CreateEpisodesTable extends Migration
             $table->increments('id');
             $table->integer('movie_id');
             $table->string('link',255);
-            $table->integer('episode');
+            $table->string('episode');
             $table->string('slug');
             $table->timestamps();
         });
