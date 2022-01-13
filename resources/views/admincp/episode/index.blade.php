@@ -9,9 +9,9 @@
                     <tr>
                     <th scope="col">STT</th>
                     <th scope="col">Tên phim</th>
-                    <th scope="col">URL Video</th>
-                    <th scope="col">Slug</th>
                     <th scope="col">Tập</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">URL Video</th>
                     <th></th>
                     </tr>
                 </thead>
@@ -20,9 +20,9 @@
                         <tr>
                         <td>{{$episode->id}}</td>
                         <td>{{ $episode->movie->title }}</td>
-                        <td>{{ $episode->link }}</td>
-                        <td>{{ $episode->slug }}</td>
                         <td>{{ $episode->episode }}</td>
+                        <td>{{ $episode->slug }}</td>
+                        <td>{{ $episode->link }}</td>
                         <td>
                             {!! Form::open(['route' => ['episode.destroy', $episode->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("Bạn có muốn xoá??")']) !!}
                                 {!! Form::submit('Xoá', ['class' => 'btn btn-danger']) !!}
