@@ -37,7 +37,7 @@ class IndexController extends Controller
     }
 
     public function ajaxSearch(){
-        $result_search =  Movie::search()->get();
+        $result_search =  Movie::search()->take(6)->get();
         return view('pages.ajaxSearch', compact('result_search'));
     }
 
