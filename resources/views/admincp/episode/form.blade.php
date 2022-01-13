@@ -19,7 +19,7 @@
                          {!! Form::open(['route' => ['episode.update', $episode->id], 'method' => 'PUT',  'enctype' => 'multipart/form-data']) !!}
                     @endif
                     <div class="form-group">
-                            {!! Form::label('movie_id', 'Movie', [])  !!}
+                            {!! Form::label('movie_id', 'Tên phim', [])  !!}
                             {!! Form::select('movie_id', $movie,  isset($episode) ? $episode->movie_id :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">

@@ -20,7 +20,7 @@
                          {!! Form::open(['route' => ['category.update', $category->id], 'method' => 'PUT']) !!}
                     @endif
                         <div class="form-group">
-                            {!! Form::label('title', 'Title', [])  !!}
+                            {!! Form::label('title', 'Tên danh mục', [])  !!}
                             {!! Form::text('title', isset($category) ? $category->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()', 'required autocomplete' =>'title'])  !!}
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -31,11 +31,11 @@
                             {!! Form::text('slug', isset($category) ? $category->slug :'', ['class' => 'form-control', 'readonly','placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('description', 'Description', [])  !!}
+                            {!! Form::label('description', 'Mô tả', [])  !!}
                             {!! Form::textarea('description', isset($category) ? $category->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description', 'required autocomplete' =>'description'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('status', 'Status', [])  !!}
+                            {!! Form::label('status', 'Trạng thái', [])  !!}
                             {!! Form::select('status', ['1' =>'Hiển thị', '0' =>'Không'],  isset($category) ? $category->status :'', ['class' => 'form-control']) !!}
                         </div>
                         @if(!isset($category))

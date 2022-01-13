@@ -19,11 +19,11 @@
                          {!! Form::open(['route' => ['movie.update', $movie->id], 'method' => 'PUT',  'enctype' => 'multipart/form-data']) !!}
                     @endif
                         <div class="form-group">
-                            {!! Form::label('title', 'Title', [])  !!}
+                            {!! Form::label('title', 'Tên phim', [])  !!}
                             {!! Form::text('title', isset($movie) ? $movie->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()', 'required autocomplete' =>'title'])  !!}
                         </div>
                         <div class="form-group">
-                          {!! Form::label('Name English', 'Name English', [])  !!}
+                          {!! Form::label('Name English', 'Tên tiếng anh', [])  !!}
                           {!! Form::text('name_eng', isset($movie) ? $movie->name_eng :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'name_eng'])  !!}
                       </div>
                         <div class="form-group">
@@ -31,27 +31,31 @@
                             {!! Form::text('slug', isset($movie) ? $movie->slug :'', ['class' => 'form-control', 'readonly','placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('description', 'Description', [])  !!}
+                            {!! Form::label('description', 'Mô tả', [])  !!}
                             {!! Form::textarea('description', isset($movie) ? $movie->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description', 'required autocomplete' =>'description'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('status', 'Status', [])  !!}
-                            {!! Form::select('status', ['1' =>'hien thi', '0' =>'khong'],  isset($movie) ? $movie->status :'', ['class' => 'form-control']) !!}
+                            {!! Form::label('time', 'Thời gian', [])  !!}
+                            {!! Form::text('time', isset($movie) ? $movie->time :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'time'])  !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('status', 'Trạng thái', [])  !!}
+                            {!! Form::select('status', ['1' =>'Hiển thị', '0' =>'Không'],  isset($movie) ? $movie->status :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Hot', 'Hot', [])  !!}
-                            {!! Form::select('phim_hot', ['1' =>'Co', '0' =>'khong'],  isset($movie) ? $movie->phim_hot :'', ['class' => 'form-control']) !!}
+                            {!! Form::select('phim_hot', ['1' =>'Có', '0' =>'Không'],  isset($movie) ? $movie->phim_hot :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('category', 'Category', [])  !!}
+                            {!! Form::label('category', 'Danh mục', [])  !!}
                             {!! Form::select('category_id',$category ,  isset($movie) ? $movie->category_id :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('genre', 'Genre', [])  !!}
+                            {!! Form::label('genre', 'Thể loại', [])  !!}
                             {!! Form::select('genre_id', $genre,  isset($movie) ? $movie->genre_id :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('country', 'Country', [])  !!}
+                            {!! Form::label('country', 'Quốc gia', [])  !!}
                             {!! Form::select('country_id',$country ,  isset($movie) ? $movie->country_id :'', ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
@@ -66,10 +70,10 @@
                                 <img width="20%" src="{{asset('uploads/video/'.$movie->video)  }}">
                             @endif --}}
                         </div>
-                        <!-- <div class="form-group">
-                            {!! Form::label('Url Video', 'URL Video', [])  !!}
+                        <div class="form-group">
+                            {!! Form::label('Url Video Trailer', 'URL Video Trailer', [])  !!}
                             {!! Form::text('video', isset($movie) ? $movie->video :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'video'])  !!}
-                        </div> -->
+                        </div>
                         @if(!isset($movie))
                             {!! Form::submit('Thêm',['class' =>'btn btn-success'])  !!}
                         @else

@@ -50,7 +50,7 @@
                       <h2 class="movie-title title-2" style="font-size: 12px;">{{ $movie->name_eng }}</h2>
                       <ul class="list-info-group">
                          <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">HD</span><span class="episode">Vietsub</span></li>
-                         <li class="list-info-group-item"><span>Thời lượng</span> : 133 Phút</li>
+                         <li class="list-info-group-item"><span>Thời lượng</span> : {{ $movie->time }}</li>
                          <li class="list-info-group-item"><span>Thể loại</span> : <a href="{{route('genre',$movie->genre->slug)}}" rel="category tag">{{ $movie->genre->title}}</a></li>
                          <li class="list-info-group-item"><span>Danh mục phim</span> : <a href="{{route('category',$movie->category->slug)}}" rel="tag">{{ $movie->category->title}}</a></li>
                          <li class="list-info-group-item"><span>Quốc gia</span> : <a href="{{route('country',$movie->country->slug)}}" rel="tag">{{ $movie->country->title}}</a></li>
@@ -103,7 +103,11 @@
              </div>
           </div>
        </section>
+       <div class="section-bar clearfix">
+                <h2 class="section-title"><span style="color:#ffed4d">Trailer</span></h2>
+                <iframe width="100%" height="500" src="{{ $movie->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+             </div>
        <section class="related-movies">
           <div id="halim_related_movies-2xx" class="wrap-slider">
              <div class="section-bar clearfix">
