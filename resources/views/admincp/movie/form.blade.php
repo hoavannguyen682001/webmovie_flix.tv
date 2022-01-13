@@ -22,6 +22,9 @@
                             {!! Form::label('title', 'Tên phim', [])  !!}
                             {!! Form::text('title', isset($movie) ? $movie->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()', 'required autocomplete' =>'title'])  !!}
                         </div>
+                        @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         <div class="form-group">
                           {!! Form::label('Name English', 'Tên tiếng anh', [])  !!}
                           {!! Form::text('name_eng', isset($movie) ? $movie->name_eng :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'name_eng'])  !!}
@@ -38,6 +41,9 @@
                             {!! Form::label('time', 'Thời gian', [])  !!}
                             {!! Form::text('time', isset($movie) ? $movie->time :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'time'])  !!}
                         </div>
+                        @error('time')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         <div class="form-group">
                             {!! Form::label('status', 'Trạng thái', [])  !!}
                             {!! Form::select('status', ['1' =>'Hiển thị', '0' =>'Không'],  isset($movie) ? $movie->status :'', ['class' => 'form-control']) !!}

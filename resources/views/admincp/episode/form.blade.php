@@ -26,6 +26,11 @@
                             {!! Form::label('link', 'URL Video', [])  !!}
                             {!! Form::text('link', isset($episode) ? $episode->link :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'link'])  !!}
                         </div>
+
+                        <div class="form-group">
+                            {!! Form::label('episode', 'Episode', [])  !!}
+                            {!! Form::text('episode', isset($episode) ? $episode->episode :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'epispde','id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
+                        </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
                             {!! Form::text('slug', isset($episode) ? $episode->slug :'', ['class' => 'form-control','readonly', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
@@ -33,10 +38,6 @@
                         @error('slug')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        <div class="form-group">
-                            {!! Form::label('episode', 'Episode', [])  !!}
-                            {!! Form::text('episode', isset($episode) ? $episode->episode :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'required autocomplete' =>'epispde','id' => 'slug', 'onkeyup' => 'ChangeToSlug()'])  !!}
-                        </div>
                         @if(!isset($episode))
                             {!! Form::submit('Thêm',['class' =>'btn btn-success'])  !!}
                         @else

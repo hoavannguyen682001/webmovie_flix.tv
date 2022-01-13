@@ -20,7 +20,7 @@
   <tbody>
     <tr>
     @foreach($list as $key => $country)
-      <td>{{ $country->id }}</td>
+      <td>{{ $key+1 }}</td>
       <td>{{ $country->title }}</td>
       <td>{{ $country->slug }}</td>
       <td>{{ $country->description }}</td>

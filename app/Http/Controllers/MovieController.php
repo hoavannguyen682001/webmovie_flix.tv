@@ -43,6 +43,10 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+        $validate  = $request->validate( [
+            'title' => ['required', 'string', 'max:255', 'unique:movies'],
+            'time' => ['required', 'integer', 'max:255'],
+        ]);
         $view = 0;
         $data = $request->all();
         $movie = new Movie();
