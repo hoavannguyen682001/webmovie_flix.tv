@@ -16,9 +16,9 @@
         <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
            <section id="content" class="test">
               <div class="clearfix wrap-content">
-
-                 <iframe width="100%" height="500" src="{{ $episode->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+              
+                  <iframe width="100%" height="500" src="{{ $episode->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               
                  <div class="button-watch">
                     <ul class="halim-social-plugin col-xs-4 hidden-xs">
                        <li class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></li>
@@ -77,7 +77,7 @@
                        <div role="tabpanel" class="tab-pane active server-1" id="server-0">
                         <div class="halim-server" style="margin-top:16px ">
                             @foreach($episode_all as $key => $epi)
-                                   <span style=" padding:10px 2px; border: 1px solid gray; border-radius: 5px; "> <a href="{{ url('episodes/'.$epi->slug) }}">{{ $key+1 }}</a></span>
+                                   <span style=" padding:10px 2px; border: 1px solid gray; border-radius: 5px; "> <a href="{{ url('episodes/'.$epi->slug) }}">Tập {{ $key+1 }}</a></span>
                             @endforeach
 
                              <div class="clearfix"></div>
