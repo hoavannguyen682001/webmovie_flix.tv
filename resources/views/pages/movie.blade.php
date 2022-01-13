@@ -40,21 +40,27 @@
                       <img class="movie-thumb" src="{{asset('uploads/movie/'.$movie->image)}}" alt="{{ $movie->title }}">
                       <div class="bwa-content">
                          <div class="loader"></div>
-                         <a href="{{ url('episodes/'.$episode_first->slug ) }}" class="bwac-btn">
-                         <i class="fa fa-play"></i>
-                         </a>
+                         @if ($episode_first)
+                           <a href="{{ url('episodes/'.$episode_first->slug ) }}" class="bwac-btn">
+                              <i class="fa fa-play"></i>
+                           </a>
+                         @endif
+                         
+                         
                       </div>
                    </div>
                    <div class="film-poster col-md-9">
                       <h1 class="movie-title title-1" style="display:block;line-height:35px;margin-bottom: -14px;color: #ffed4d;text-transform: uppercase;font-size: 18px;">{{ $movie->title }}</h1>
                       <h2 class="movie-title title-2" style="font-size: 12px;">{{ $movie->name_eng }}</h2>
                       <ul class="list-info-group">
-                         <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">HD</span><span class="episode">Vietsub</span></li>
+                        @if(!$episode_first)
+                           <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="episode">Đang cập nhật</span></li>
+                        @endif
                          <li class="list-info-group-item"><span>Thời lượng</span> : {{ $movie->time }} Phút</li>
                          <li class="list-info-group-item"><span>Thể loại</span> : <a href="{{route('genre',$movie->genre->slug)}}" rel="category tag">{{ $movie->genre->title}}</a></li>
                          <li class="list-info-group-item"><span>Danh mục phim</span> : <a href="{{route('category',$movie->category->slug)}}" rel="tag">{{ $movie->category->title}}</a></li>
                          <li class="list-info-group-item"><span>Quốc gia</span> : <a href="{{route('country',$movie->country->slug)}}" rel="tag">{{ $movie->country->title}}</a></li>
-                         </ul>
+                     </ul>
 
                          <div id="fb-root"></div>
                         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="7vaWVBy7"></script>
