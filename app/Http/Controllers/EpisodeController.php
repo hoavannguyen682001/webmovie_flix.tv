@@ -41,7 +41,7 @@ class EpisodeController extends Controller
     public function store(Request $request)
     {
         $validate  = $request->validate( [
-            'slug' => ['required', 'string', 'max:255', 'unique:episodes'],
+            'slug' => ['required', 'string', 'max:255', 'unique:episodes, '],
         ]);
         $data = $request->all();
         $episode = new Episode();
