@@ -19,7 +19,7 @@
                          {!! Form::open(['route' => ['genre.update', $genre->id], 'method' => 'PUT']) !!}
                     @endif
                     <div class="form-group">
-                            {!! Form::label('title', 'Title', [])  !!}
+                            {!! Form::label('title', 'Thể loại', [])  !!}
                             {!! Form::text('title', isset($genre) ? $genre->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()', 'required autocomplete' =>'title'])  !!}
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -27,14 +27,14 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Slug', [])  !!}
-                            {!! Form::text('slug', isset($genre) ? $genre->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
+                            {!! Form::text('slug', isset($genre) ? $genre->slug :'', ['class' => 'form-control', 'readonly','placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('description', 'Description', [])  !!}
+                            {!! Form::label('description', 'Mô tả', [])  !!}
                             {!! Form::textarea('description', isset($genre) ? $genre->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description', 'required autocomplete' =>'description'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('status', 'Status', [])  !!}
+                            {!! Form::label('status', 'Trạng thái', [])  !!}
                             {!! Form::select('status', ['1' =>'hien thi', '0' =>'khong'],  isset($genre) ? $genre->status :'', ['class' => 'form-control']) !!}
                         </div>
                         @if(!isset($genre))

@@ -1,4 +1,12 @@
 @extends('layout')
+@section('facebook')
+<meta property="og:url"           content="{{ $url }}" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{ $movie->title }}" />
+<meta property="og:description"   content="{{$movie->description}}" />
+<meta property="og:image"         content="{{$image}}" />
+@endsection
+
 @section('content')
 <div class="row container" id="wrapper">
     <div class="halim-panel-filter">
@@ -32,21 +40,55 @@
                       <img class="movie-thumb" src="{{asset('uploads/movie/'.$movie->image)}}" alt="{{ $movie->title }}">
                       <div class="bwa-content">
                          <div class="loader"></div>
-                         <a href="{{ url('episodes/'.$episode_first->slug ) }}" class="bwac-btn">
-                         <i class="fa fa-play"></i>
-                         </a>
+                         @if ($episode_first)
+                           <a href="{{ url('episodes/'.$episode_first->slug ) }}" class="bwac-btn">
+                              <i class="fa fa-play"></i>
+                           </a>
+                         @endif
+                         
+                         
                       </div>
                    </div>
                    <div class="film-poster col-md-9">
                       <h1 class="movie-title title-1" style="display:block;line-height:35px;margin-bottom: -14px;color: #ffed4d;text-transform: uppercase;font-size: 18px;">{{ $movie->title }}</h1>
                       <h2 class="movie-title title-2" style="font-size: 12px;">{{ $movie->name_eng }}</h2>
                       <ul class="list-info-group">
-                         <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">HD</span><span class="episode">Vietsub</span></li>
-                         <li class="list-info-group-item"><span>Thời lượng</span> : 133 Phút</li>
+                        @if(!$episode_first)
+                           <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="episode">Đang cập nhật</span></li>
+                        @endif
+                         <li class="list-info-group-item"><span>Thời lượng</span> : {{ $movie->time }} Phút</li>
                          <li class="list-info-group-item"><span>Thể loại</span> : <a href="{{route('genre',$movie->genre->slug)}}" rel="category tag">{{ $movie->genre->title}}</a></li>
                          <li class="list-info-group-item"><span>Danh mục phim</span> : <a href="{{route('category',$movie->category->slug)}}" rel="tag">{{ $movie->category->title}}</a></li>
                          <li class="list-info-group-item"><span>Quốc gia</span> : <a href="{{route('country',$movie->country->slug)}}" rel="tag">{{ $movie->country->title}}</a></li>
+                     </ul>
+
+                         <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="7vaWVBy7"></script>
+
+                        <div class="fb-share-button" data-href="{{$url}}" data-layout="box_count" data-size="small"><a target="_blank"
+                         href="https://www.facebook.com/sharer/sharer.php?u={{$url}}" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                         <p>Đánh giá của bạn:</p>
+                         <ul class="list-inline rating" title="Average Rating" style="float: left;" >
+                            @for( $count = 5; $count>=1; $count--)
+                                    @php
+                                        if($count <= $rating){
+                                            $color = 'color:#ffcc00';
+                                        }else{
+                                            $color = 'color:#ccc';
+                                        }
+                                    @endphp
+                            <li title="Đánh giá sao"
+                                id="{{$movie->id}}-{{$count}}"
+                                data-index="{{$count}}"
+                                data-movie_id="{{ $movie->id }}"
+                                data-rating="{{$rating}}"
+                                class="rating"
+                                style="cursor: pointer;{{$color}};font-size: 30px;">
+                                &#9733;
+                            </li>
+                            @endfor
                          </ul>
+
                       <div class="movie-trailer hidden"></div>
                    </div>
                 </div>
@@ -67,6 +109,11 @@
              </div>
           </div>
        </section>
+       <div class="section-bar clearfix">
+                <h2 class="section-title"><span style="color:#ffed4d">Trailer</span></h2>
+                <iframe width="100%" height="500" src="{{ $movie->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+             </div>
        <section class="related-movies">
           <div id="halim_related_movies-2xx" class="wrap-slider">
              <div class="section-bar clearfix">

@@ -10,6 +10,8 @@
       <meta name="language" content="Việt Nam">
 
 
+      @yield('facebook')
+
       <link rel="shortcut icon" href="{{ asset('/uploads/movie/logo.png') }}" type="image/x-icon" />
       <meta name="revisit-after" content="1 days" />
       <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
@@ -74,6 +76,7 @@
          <div class="container">
             <div class="row" id="headwrap">
                <div class="col-md-3 col-sm-6 slogan">
+                  <a href="{{ route('homepage') }}">
                   <i class="fa fa-film"></i> Fl<span class="main-color">i</span>x
                   </a>
                </div>
@@ -245,9 +248,59 @@
          });
 
       </script>
+            <script type="text/javascript">
+                function remove_background(movie_id)
+                {
+                    for (var count = 5; count >=1; count--)
+                    {
+                        $('#' + movie_id + '-' +count).css('color','#ccc');
+                    }
+                }
+                //  hover chuot danh gia sao
+                $(document).on('mouseenter','.rating', function(){
+                    var index= $(this).data("index");
+                    var movie_id = $(this).data('movie_id');
+                    remove_background(movie_id);
+                    for(var count =index ; count>=1; count--){
+                        $('#' + movie_id + '-' + count).css('color','#ffcc00');
+                    }
+                });
 
+                //nhả chuột không đánh giá
+                $(document).on('mouseleave', '.rating', function(){
+                    var index= $(this).data("index");
+                    var movie_id = $(this).data("movie_id");
+                    var rating = $(this).data('rating');
+                    remove_background(movie_id);
+                    for(var count = rating; count >=1; count--){
+                        $('#'+movie_id+'-'+count).css('color','#ffcc00');
+                    }
+                });
+                //click danh gia sao
+                $(document).on('click','.rating', function(){
+                    var index = $(this).data("index");
+                    var movie_id = $(this).data('movie_id');
+                    var _token = $('input[name="_token"]').val();
+                    // alert(url);
+                    $.ajax({
+                        url: "{{ route('rating.store') }}",
+                        method: "POST",
+                        data:{index:index, movie_id:movie_id, _token:_token},
+                        success:function(data){
+                            if(data == "done")
+                            {
+                                alert("Bạn đã đánh giá "+ index +" trên 5 sao");
+                            }else{
+                                alert("Lỗi đánh giá");
+                            }
+                            // alert(data);
+                        }
+                    });
+                });
+            </script>
 
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="0yrOlTxg"></script>
       <style>#overlay_mb{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.7);z-index:99999;cursor:pointer}#overlay_mb .overlay_mb_content{position:relative;height:100%}.overlay_mb_block{display:inline-block;position:relative}#overlay_mb .overlay_mb_content .overlay_mb_wrapper{width:600px;height:auto;position:relative;left:50%;top:50%;transform:translate(-50%, -50%);text-align:center}#overlay_mb .overlay_mb_content .cls_ov{color:#fff;text-align:center;cursor:pointer;position:absolute;top:5px;right:5px;z-index:999999;font-size:14px;padding:4px 10px;border:1px solid #aeaeae;background-color:rgba(0, 0, 0, 0.7)}#overlay_mb img{position:relative;z-index:999}@media only screen and (max-width: 768px){#overlay_mb .overlay_mb_content .overlay_mb_wrapper{width:400px;top:3%;transform:translate(-50%, 3%)}}@media only screen and (max-width: 400px){#overlay_mb .overlay_mb_content .overlay_mb_wrapper{width:310px;top:3%;transform:translate(-50%, 3%)}}</style>
 
       <style>
@@ -358,5 +411,6 @@
             font-style: italic
          }
       </style>
+
    </body>
 </html>

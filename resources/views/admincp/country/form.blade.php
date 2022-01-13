@@ -18,7 +18,7 @@
                          {!! Form::open(['route' => ['country.update', $country->id], 'method' => 'PUT']) !!}
                     @endif
                     <div class="form-group">
-                            {!! Form::label('title', 'Title', [])  !!}
+                            {!! Form::label('title', 'Tên quốc gia', [])  !!}
                             {!! Form::text('title', isset($country) ? $country->title :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'slug', 'onkeyup' => 'ChangeToSlug()',  'required autocomplete' =>'title'])  !!}
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -29,11 +29,11 @@
                             {!! Form::text('slug', isset($country) ? $country->slug :'', ['class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'convert_slug'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('description', 'Description', [])  !!}
-                            {!! Form::textarea('description', isset($country) ? $country->description :'', ['style'=> 'resize:none','class' => 'form-control', 'placeholder'=>'nhap du lieu', 'id' => 'description',  'required autocomplete' =>'description'])  !!}
+                            {!! Form::label('description', 'Mô tả', [])  !!}
+                            {!! Form::textarea('description', isset($country) ? $country->description :'', ['style'=> 'resize:none','class' => 'form-control', 'readonly','placeholder'=>'nhap du lieu', 'id' => 'description',  'required autocomplete' =>'description'])  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('status', 'Status', [])  !!}
+                            {!! Form::label('status', 'Trạng thái', [])  !!}
                             {!! Form::select('status', ['1' =>'hien thi', '0' =>'khong'],  isset($country) ? $country->status :'', ['class' => 'form-control']) !!}
                         </div>
                         @if(!isset($country))

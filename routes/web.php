@@ -28,12 +28,17 @@ Route::get('/xem-phim/{slug}', [IndexController::class, 'watch'])->name('watch')
 Route::get('/episodes/{slug}', [IndexController::class, 'episode'])->name('episode');
 Route::get('/view/{id}', [IndexController::class, 'view'])->name('view');
 
+Route::post('/insert-rating', [RatingController::class, 'insert'])->name('ratinsg');
+
+Route::post('/insert-rating', 'RatingController@insert')->name('rating');
+
 // Route::get('/view_register_user', [UserController::class, 'view_add'])->name('viewregisteruser');
 Route::post('/register_user', [LoginRegisController::class, 'register'])->name('registeruser');
 // Route::get('/loign_user', [UserController::class, 'index'])->name('loginuser');
 
 Route::resource('loginuser', App\Http\Controllers\LoginRegisController::class);
 Route::resource('registeruser',  App\Http\Controllers\LoginRegisController::class);
+Route::resource('rating',  App\Http\Controllers\RatingController::class);
 
 
 //ROUTE ADMIN

@@ -43,6 +43,10 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+        $validate  = $request->validate( [
+            'title' => ['required', 'string', 'max:255', 'unique:movies'],
+            'time' => ['required', 'integer', 'max:255'],
+        ]);
         $view = 0;
         $data = $request->all();
         $movie = new Movie();
@@ -51,11 +55,12 @@ class MovieController extends Controller
         $movie->slug = $data['slug'];
         $movie->phim_hot = $data['phim_hot'];
         $movie->description = $data['description'];
+        $movie->time = $data['time'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
-        // $movie->video = $data['video'];
+        $movie->video = $data['video'];
         $movie->view = 0;
 
         //them hinh anh
@@ -124,11 +129,12 @@ class MovieController extends Controller
         $movie->slug = $data['slug'];
         $movie->phim_hot = $data['phim_hot'];
         $movie->description = $data['description'];
+        $movie->time = $data['time'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];
         $movie->genre_id = $data['genre_id'];
         $movie->country_id = $data['country_id'];
-        // $movie->video = $data['video'];
+        $movie->video = $data['video'];
 
         //them hinh anh
         $get_image = $request->file('image');

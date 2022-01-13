@@ -22,7 +22,7 @@
                         <td>{{ $episode->movie->title }}</td>
                         <td>{{ $episode->episode }}</td>
                         <td>{{ $episode->slug }}</td>
-                        <td><a  href="{{ route('watch', $episode->id) }}" >view</td>
+                        <td>{{ $episode->link }}</td>
                         <td>
                             {!! Form::open(['route' => ['episode.destroy', $episode->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("Bạn có muốn xoá??")']) !!}
                                 {!! Form::submit('Xoá', ['class' => 'btn btn-danger']) !!}

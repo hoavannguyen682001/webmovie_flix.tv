@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Episode;
-use App\Models\Movie;
+use App\Http\Controllers\Controller;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 
-class EpisodeController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class EpisodeController extends Controller
      */
     public function index()
     {
-        $list = Episode::with('movie')->orderBy('id','ASC')->get();
-        return view('admincp.episode.index', compact('list'));
+        //
     }
 
     /**
@@ -26,10 +25,7 @@ class EpisodeController extends Controller
      */
     public function create()
     {
-
-        $movie = Movie::pluck('title','id');
-        $list = Episode::all();
-        return view('admincp.episode.form', compact('list','movie'));
+        //
     }
 
     /**
@@ -40,18 +36,12 @@ class EpisodeController extends Controller
      */
     public function store(Request $request)
     {
-        $validate  = $request->validate( [
-            'slug' => ['required', 'string', 'max:255', 'unique:episodes'],
-        ]);
-        $data = $request->all();
-        $episode = new Episode();
-        $episode->movie_id = $data['movie_id'];
-        $episode->slug = $data['slug'];
-        $episode->episode = $data['episode'];
-        $episode->link = $data['link'];
-
-        $episode->save();
-        return redirect()->back();
+         $data = $request->all();
+        $rating = new Rating();
+        $rating->movie_id = $data['movie_id'];
+        $rating->rating = $data['index'];
+        $rating->save();
+        echo 'done';
     }
 
     /**
@@ -73,10 +63,7 @@ class EpisodeController extends Controller
      */
     public function edit($id)
     {
-
-        $movie = Movie::pluck('title','id');
-        $episode = Episode::find($id);
-        return view('admincp.episode.form', compact('movie','episode'));
+        //
     }
 
     /**
@@ -88,15 +75,7 @@ class EpisodeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $episode = Episode::find($id);
-        $episode->movie_id = $data['movie_id'];
-        $episode->slug = $data['slug'];
-        $episode->episode = $data['episode'];
-        $episode->link = $data['link'];
-
-        $episode->save();
-        return redirect()->back();
+        //
     }
 
     /**
@@ -107,7 +86,6 @@ class EpisodeController extends Controller
      */
     public function destroy($id)
     {
-        Episode::find($id)->delete();
-        return redirect()->back();
+        //
     }
 }
