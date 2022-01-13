@@ -9,9 +9,9 @@
                     <tr>
                     <th scope="col">STT</th>
                     <th scope="col">Tên phim</th>
-                    <th scope="col">URL Video</th>
-                    <th scope="col">Slug</th>
                     <th scope="col">Tập</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">URL Video</th>
                     <th></th>
                     </tr>
                 </thead>
