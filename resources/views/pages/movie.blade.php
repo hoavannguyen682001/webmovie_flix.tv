@@ -50,7 +50,7 @@
                       <h2 class="movie-title title-2" style="font-size: 12px;">{{ $movie->name_eng }}</h2>
                       <ul class="list-info-group">
                          <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">HD</span><span class="episode">Vietsub</span></li>
-                         <li class="list-info-group-item"><span>Thời lượng</span> : {{ $movie->time }}</li>
+                         <li class="list-info-group-item"><span>Thời lượng</span> : {{ $movie->time }} Phút</li>
                          <li class="list-info-group-item"><span>Thể loại</span> : <a href="{{route('genre',$movie->genre->slug)}}" rel="category tag">{{ $movie->genre->title}}</a></li>
                          <li class="list-info-group-item"><span>Danh mục phim</span> : <a href="{{route('category',$movie->category->slug)}}" rel="tag">{{ $movie->category->title}}</a></li>
                          <li class="list-info-group-item"><span>Quốc gia</span> : <a href="{{route('country',$movie->country->slug)}}" rel="tag">{{ $movie->country->title}}</a></li>
