@@ -77,7 +77,7 @@
                        <div role="tabpanel" class="tab-pane active server-1" id="server-0">
                         <div class="halim-server" style="margin-top:16px ">
                             @foreach($episode_all as $key => $epi)
-                                   <span style=" padding:10px 2px; border: 1px solid gray; border-radius: 5px; "> <a href="{{ url('episodes/'.$epi->slug) }}" " >{{ $key+1 }}</a></span>
+                                   <span style=" padding:10px 2px; border: 1px solid gray; border-radius: 5px; "> <a href="{{ url('episodes/'.$epi->slug) }}">{{ $key+1 }}</a></span>
                             @endforeach
 
                              <div class="clearfix"></div>
@@ -90,8 +90,8 @@
                     <div id="lightout"></div>
                  </div>
            </section>
+           <div class="fb-comments" data-href="{{ \URL::current() }}" data-width="100%" data-numposts="5" style="background-color: white;"></div>
            <section class="related-movies">
-           <div class="fb-comments" data-href="http://127.0.0.1:8000/phim/ma-tran" data-width="" data-numposts="5" style="background-color: while; color: while"></div>
 
            <div id="halim_related_movies-2xx" class="wrap-slider">
            <div class="section-bar clearfix">
